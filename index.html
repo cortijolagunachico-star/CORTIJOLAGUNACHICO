@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <script>
+    // Global error handler to show any JavaScript errors directly on screen as a red banner
+    window.onerror = function(message, source, lineno, colno, error) {
+      const banner = document.createElement("div");
+      banner.style.position = "fixed";
+      banner.style.top = "0";
+      banner.style.left = "0";
+      banner.style.width = "100%";
+      banner.style.backgroundColor = "#ffdddd";
+      banner.style.color = "#900";
+      banner.style.padding = "15px";
+      banner.style.borderBottom = "3px solid #f00";
+      banner.style.zIndex = "9999999";
+      banner.style.fontFamily = "monospace";
+      banner.style.fontSize = "14px";
+      banner.style.boxShadow = "0 4px 10px rgba(0,0,0,0.3)";
+      banner.innerHTML = "<strong>[Error de JavaScript]:</strong> " + message + "<br><em>Archivo: " + source + " (Línea " + lineno + ", Columna " + colno + ")</em>";
+      
+      const insertBanner = function() {
+        if (document.body) {
+          document.body.appendChild(banner);
+        } else {
+          setTimeout(insertBanner, 100);
+        }
+      };
+      insertBanner();
+      return false;
+    };
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cortijo Laguna Chico - Alojamiento y Eventos en la Playa</title>
@@ -3085,6 +3114,43 @@
 
     // --- INTERACTIVE LÓGICA ---
     document.addEventListener("DOMContentLoaded", () => {
+      // --- CALCULATOR ---
+      const calcSeason = document.getElementById("calcSeason");
+      const calcNights = document.getElementById("calcNights");
+      const calcResult = document.getElementById("calcResult");
+      const calcBtn = document.getElementById("calcBtn");
+      const calcInquireBtn = document.getElementById("calcInquireBtn");
+      
+      const seasonRates = {
+        low: 450,
+        mid: 550,
+        high: 650
+      };
+
+      function calculateBudget() {
+        if (!calcSeason || !calcNights || !calcResult) return;
+        
+        const season = calcSeason.value;
+        const nights = parseInt(calcNights.value) || 0;
+        
+        if (nights <= 0) {
+          calcResult.innerHTML = `- €`;
+          if (calcInquireBtn) calcInquireBtn.style.display = "none";
+          return;
+        }
+        
+        const pricePerNight = seasonRates[season];
+        const total = pricePerNight * nights;
+        
+        calcResult.innerHTML = `${total} €`;
+        if (calcInquireBtn) calcInquireBtn.style.display = "inline-block";
+      }
+
+      if (calcBtn) calcBtn.addEventListener("click", calculateBudget);
+      if (calcSeason) calcSeason.addEventListener("change", calculateBudget);
+      if (calcNights) calcNights.addEventListener("input", calculateBudget);
+
+      // --- LANGUAGE AND TRANSLATIONS ---
       let currentLang = localStorage.getItem("cortijo_lang") || "es";
       const langSelectors = document.querySelectorAll(".lang-selector");
       
@@ -3147,42 +3213,6 @@
           });
         });
       }
-
-      // --- CALCULATOR ---
-      const calcSeason = document.getElementById("calcSeason");
-      const calcNights = document.getElementById("calcNights");
-      const calcResult = document.getElementById("calcResult");
-      const calcBtn = document.getElementById("calcBtn");
-      const calcInquireBtn = document.getElementById("calcInquireBtn");
-      
-      const seasonRates = {
-        low: 450,
-        mid: 550,
-        high: 650
-      };
-
-      function calculateBudget() {
-        if (!calcSeason || !calcNights || !calcResult) return;
-        
-        const season = calcSeason.value;
-        const nights = parseInt(calcNights.value) || 0;
-        
-        if (nights <= 0) {
-          calcResult.innerHTML = `- €`;
-          if (calcInquireBtn) calcInquireBtn.style.display = "none";
-          return;
-        }
-        
-        const pricePerNight = seasonRates[season];
-        const total = pricePerNight * nights;
-        
-        calcResult.innerHTML = `${total} €`;
-        if (calcInquireBtn) calcInquireBtn.style.display = "inline-block";
-      }
-
-      if (calcBtn) calcBtn.addEventListener("click", calculateBudget);
-      if (calcSeason) calcSeason.addEventListener("change", calculateBudget);
-      if (calcNights) calcNights.addEventListener("input", calculateBudget);
 
       if (calcInquireBtn) {
         calcInquireBtn.addEventListener("click", () => {
@@ -3733,7 +3763,8 @@
           document.querySelectorAll("[style]").forEach(el => {
             const style = el.getAttribute("style");
             if (style && style.includes("/web/image/")) {
-              const fixedStyle = style.replace(/(?:https?:\/\/[^\/]+)?\/web/g, odooDomain + "/web");
+              // Replace any prefix before /web with the odooDomain
+              const fixedStyle = style.replace(/url\(['"]?(?:[^'"]*?)?\/web/g, "url('" + odooDomain + "/web");
               el.setAttribute("style", fixedStyle);
             }
           });
@@ -3748,7 +3779,7 @@
                 const rule = rules[j];
                 if (rule.style && rule.style.backgroundImage && rule.style.backgroundImage.includes("/web/image/")) {
                   const oldBg = rule.style.backgroundImage;
-                  const newBg = oldBg.replace(/(?:https?:\/\/[^\/]+)?\/web/g, odooDomain + "/web");
+                  const newBg = oldBg.replace(/url\(['"]?(?:[^'"]*?)?\/web/g, "url('" + odooDomain + "/web");
                   rule.style.backgroundImage = newBg;
                 }
               }
