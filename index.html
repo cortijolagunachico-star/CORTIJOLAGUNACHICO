@@ -3721,8 +3721,11 @@
           // 1. Fix all img tags
           document.querySelectorAll("img").forEach(img => {
             const src = img.getAttribute("src");
-            if (src && src.startsWith("/web/image/")) {
-              img.setAttribute("src", odooDomain + src);
+            if (src && src.includes("/web/image/")) {
+              const match = src.match(/\/web\/image\/.*$/);
+              if (match) {
+                img.setAttribute("src", odooDomain + match[0]);
+              }
             }
           });
 
@@ -3730,14 +3733,14 @@
           document.querySelectorAll("[style]").forEach(el => {
             const style = el.getAttribute("style");
             if (style && style.includes("/web/image/")) {
-              const fixedStyle = style.replace(/\/web/g, odooDomain + "/web");
+              const fixedStyle = style.replace(/(?:https?:\/\/[^\/]+)?\/web/g, odooDomain + "/web");
               el.setAttribute("style", fixedStyle);
             }
           });
 
           // 3. Fix background image in CSS stylesheet rules
-          try {
-            for (let i = 0; i < document.styleSheets.length; i++) {
+          for (let i = 0; i < document.styleSheets.length; i++) {
+            try {
               const sheet = document.styleSheets[i];
               const rules = sheet.cssRules || sheet.rules;
               if (!rules) continue;
@@ -3745,13 +3748,13 @@
                 const rule = rules[j];
                 if (rule.style && rule.style.backgroundImage && rule.style.backgroundImage.includes("/web/image/")) {
                   const oldBg = rule.style.backgroundImage;
-                  const newBg = oldBg.replace(/\/web/g, odooDomain + "/web");
+                  const newBg = oldBg.replace(/(?:https?:\/\/[^\/]+)?\/web/g, odooDomain + "/web");
                   rule.style.backgroundImage = newBg;
                 }
               }
+            } catch (e) {
+              // Ignore cross-origin security errors and continue
             }
-          } catch (e) {
-            console.warn("[Odoo Bridge] Stylesheet rewrite failed:", e);
           }
         };
 
