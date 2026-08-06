@@ -38,6 +38,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
+    html, body {
+      overflow-x: hidden !important;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
     /* Scoped Styles for Odoo Compatibility */
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
@@ -1253,8 +1260,30 @@
         padding: 4rem 1.25rem;
       }
 
+      .cortijo-website .nav-container {
+        height: 70px;
+        padding: 0 1.25rem;
+      }
+
+      .cortijo-website .logo-img {
+        height: 42px;
+      }
+
       .cortijo-website .menu-toggle {
         display: flex;
+        z-index: 1001;
+      }
+
+      .cortijo-website .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background-color: var(--accent);
+      }
+      .cortijo-website .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .cortijo-website .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: var(--accent);
       }
 
       .cortijo-website .nav-menu {
@@ -1297,7 +1326,8 @@
       }
 
       .cortijo-website .hero {
-        min-height: 70vh;
+        min-height: 100vh;
+        min-height: 100svh;
         border-bottom-right-radius: 30px;
       }
 
@@ -1840,14 +1870,14 @@
     .cortijo-cal-widget .month-header .nav-btn-prev {
       position: absolute;
       left: 0;
-      top: 50%;
+      top: 30%;
       transform: translateY(-50%);
     }
 
     .cortijo-cal-widget .month-header .nav-btn-next {
       position: absolute;
       right: 0;
-      top: 50%;
+      top: 30%;
       transform: translateY(-50%);
     }
 
@@ -1991,7 +2021,6 @@
         
                 <nav class="nav-menu" id="navMenu">
           <li class="nav-item"><a href="#home" data-translate="navHome">Inicio</a></li>
-          <li class="nav-item"><a href="#about" data-translate="navAbout">Nosotros</a></li>
           <li class="nav-item"><a href="#habitaciones" data-translate="navRooms">Habitaciones</a></li>
           <li class="nav-item"><a href="https://www.lagunachico.com" target="_blank" data-translate="navEvents">Eventos</a></li>
           <li class="nav-item"><a href="#tarifas" data-translate="navRates">Tarifas</a></li>
@@ -2128,11 +2157,13 @@
               <img src="/web/image/12076/Habitaci%C3%B3n%201.1.jpg" class="room-slide" alt="Habitación 1 - Cama">
               <img src="/web/image/12075/Habitaci%C3%B3n%201.2.jpg" class="room-slide" alt="Habitación 1 - Vista">
               <img src="/web/image/12062/Ba%C3%B1o%201.jpg" class="room-slide" alt="Habitación 1 - Baño en suite">
+              <img src="/web/image/12097/Terraza%201.jpg" class="room-slide" alt="Habitación 1 - Terraza">
             </div>
             <span class="room-slider-nav prev" aria-label="Previous photo" role="button">&#10094;</span>
             <span class="room-slider-nav next" aria-label="Next photo" role="button">&#10095;</span>
             <div class="room-slider-dots">
               <span class="dot active"></span>
+              <span class="dot"></span>
               <span class="dot"></span>
               <span class="dot"></span>
               <span class="dot"></span>
@@ -2391,6 +2422,36 @@
           </p>
           <p data-translate="room11Desc" class="room-desc">Un espacio de reunión amplio y confortable, para disfrutar con todo el grupo.</p>
         </div>
+
+        <!-- Room 12 (Entradas y Pasillos) -->
+        <div class="feature-card room-card" data-room-type="common">
+          <div class="room-slider">
+            <div class="room-slider-slides">
+              <img src="/web/image/12071/Entrada%20exterior.jpg" class="room-slide active" alt="Entrada Exterior">
+              <img src="/web/image/12101/Porche%20entrada.jpg" class="room-slide" alt="Porche Entrada">
+              <img src="/web/image/12100/Porche%20piscina.jpg" class="room-slide" alt="Porche Piscina">
+              <img src="/web/image/12104/Hall%20piscina.jpg" class="room-slide" alt="Hall Piscina">
+              <img src="/web/image/12103/Pasilla%20Playa.jpg" class="room-slide" alt="Pasillo Playa">
+              <img src="/web/image/12084/Escalera%20arriba.jpg" class="room-slide" alt="Escalera Arriba">
+            </div>
+            <span class="room-slider-nav prev" aria-label="Previous photo" role="button">&#10094;</span>
+            <span class="room-slider-nav next" aria-label="Next photo" role="button">&#10095;</span>
+            <div class="room-slider-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+          <h4 data-translate="room12Title">Entradas, Pasillos y Exteriores</h4>
+          <p class="room-specs">
+            <span><i class="fa-solid fa-door-open"></i> <span data-translate="specPassages">Zonas de Paso</span></span>
+            <span><i class="fa-solid fa-tree"></i> <span data-translate="specExteriors">Jardines y Patios</span></span>
+          </p>
+          <p data-translate="room12Desc" class="room-desc">Amplios espacios al aire libre, porches, recibidor y escaleras que conectan la casa con la piscina y la playa.</p>
+        </div>
       </div>
     </section>
 
@@ -2417,7 +2478,7 @@
             </div>
           </div>
           
-          <a href="#contacto" class="btn btn-primary" data-translate="eventsCTA">Solicitar Dosier de Eventos</a>
+          <a href="http://lagunachico.com" target="_blank" class="btn btn-primary" data-translate="eventsCTA">Solicitar Dosier de Eventos</a>
         </div>
         
         <div class="events-collage">
@@ -2480,11 +2541,19 @@
           <!-- Check Availability Card -->
           <div class="calculator-card check-avail-card">
             <h3 data-translate="checkAvailTitle">Comprueba Disponibilidad</h3>
-            <p data-translate="checkAvailDesc" style="margin: 2rem 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-muted);">
-              Consulta los días libres en nuestro calendario de ocupación en tiempo real para planificar tus vacaciones perfectas junto al mar.
-            </p>
-            <a href="#disponibilidad" class="btn btn-primary" style="background-color: var(--accent); color: white; width: 100%; text-align: center; font-size: 1.05rem; padding: 1rem;" data-translate="checkAvailBtn">Ver Calendario de Ocupación</a>
-            <p class="calc-warning-text" data-translate="calcWarning" style="margin-top: 2rem;">* Nota: Estancia mínima general de 2 noches. Alquiler por las 9 habitaciones de la casa para hasta 18 personas.</p>
+            <div class="avail-search-form" style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+              <div class="input-group">
+                <label for="searchCheckIn" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--primary);" data-translate="labelCheckIn">Fecha de Entrada:</label>
+                <input type="date" id="searchCheckIn" class="form-input" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+              </div>
+              <div class="input-group">
+                <label for="searchCheckOut" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--primary);" data-translate="labelCheckOut">Fecha de Salida:</label>
+                <input type="date" id="searchCheckOut" class="form-input" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+              </div>
+              <button type="button" id="btnSearchAvail" class="btn btn-primary" style="background-color: var(--accent); color: white; width: 100%; padding: 1rem; border-radius: 8px; font-size: 1.05rem;" data-translate="btnSearchAvail">Comprobar disponibilidad</button>
+              <div id="searchAvailResult" style="margin-top: 0.5rem; font-weight: 600; text-align: center; border-radius: 6px; padding: 0.8rem; display: none; line-height: 1.5;"></div>
+            </div>
+            <p class="calc-warning-text" data-translate="calcWarning" style="margin-top: 1.5rem;">* Nota: Estancia mínima general de 2 noches. Alquiler por las 9 habitaciones de la casa para hasta 18 personas.</p>
           </div>
         </div>
       </div>
@@ -2546,7 +2615,7 @@
             </div>
           </div>
           
-          <a href="https://cortijolagunachico.com/contact-us" target="_blank" class="book-btn" id="btnBookNow">¡¡Reserva ya!!</a>
+          <a href="#contacto" class="book-btn" id="btnBookNow" data-translate="btnBookNow">Solicitar Reserva</a>
         </div>
         
       </div>
@@ -2694,6 +2763,14 @@
                 <!-- Sidebar Info -->
         <div class="contact-sidebar">
           <div class="contact-info-card">
+            <!-- Google Maps Embed -->
+            <div class="contact-map" style="margin-bottom: 1rem; width: 100%; height: 200px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border);">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.809322627945!2d-4.106606024195155!3d36.7283626723223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd722513904a434d%3A0xc38a3d53775fbf10!2sCortijo%20Laguna%20Chico!5e0!3m2!1ses!2ses!4v1710000000000!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Cortijo+Laguna+Chico+Torre+del+Mar" target="_blank" class="btn btn-outline" style="width: 100%; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.9rem;" data-translate="takeMeThere">
+              <i class="fa-solid fa-location-arrow"></i> Cómo llegar
+            </a>
+
             <h4 data-translate="contactInfoTitle">Datos de Contacto</h4>
             
             <ul class="info-list">
@@ -2711,14 +2788,14 @@
                   <div class="contact-person" style="margin-bottom: 0.75rem;">
                     <p style="font-weight: 600;">Santiago: 685 319 023</p>
                     <div class="contact-actions" style="display: flex; gap: 0.5rem; margin-top: 0.35rem;">
-                      <a href="santiago.vcf" class="btn-action vcard-btn" title="Guardar Contacto"><i class="fa-solid fa-address-card"></i> Guardar</a>
+                      <a href="data:text/vcard;charset=utf-8;base64,QkVHSU46VkNBUkQKVkVSU0lPTjozLjAKRk46U2FudGlhZ28gLSBDb3J0aWpvIExhZ3VuYSBDaGljbwpOOjtTYW50aWFnbzs7OwpURUw7VFlQRT1DRUxMO1RZUEU9Vk9JQ0U6KzM0Njg1MzE5MDIzCkVNQUlMO1RZUEU9UFJFRixJTlRFUk5FVDppbmZvQGNvcnRpam9sYWd1bmFjaGljby5jb20KQURSO1RZUEU9V09SSyxQT1NUQUwsUEFSQ0VMOjs7Q2FsbGUgTGEgTGFndW5hIHMvbjtUb3JyZSBkZWwgTWFyO03Dg8KhbGFnYTsyOTc0MDtFc3Bhw4PCsWEKT1JHOkNvcnRpam8gTGFndW5hIENoaWNvClRJVExFOkNvbnRhY3RvClVSTDpodHRwczovL2NvcnRpam9sYWd1bmFjaGljby5jb20KRU5EOlZDQVJECg==" download="santiago.vcf" class="btn-action vcard-btn" title="Guardar Contacto"><i class="fa-solid fa-address-card"></i> Guardar</a>
                       <a href="https://wa.me/34685319023" target="_blank" class="btn-action whatsapp-btn" title="Enviar WhatsApp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
                     </div>
                   </div>
                   <div class="contact-person">
                     <p style="font-weight: 600;">Antonio: 616 996 872</p>
                     <div class="contact-actions" style="display: flex; gap: 0.5rem; margin-top: 0.35rem;">
-                      <a href="antonio.vcf" class="btn-action vcard-btn" title="Guardar Contacto"><i class="fa-solid fa-address-card"></i> Guardar</a>
+                      <a href="data:text/vcard;charset=utf-8;base64,QkVHSU46VkNBUkQKVkVSU0lPTjozLjAKRk46QW50b25pbyAtIENvcnRpam8gTGFndW5hIENoaWNvCk46O0FudG9uaW87OzsKVEVMO1RZUEU9Q0VMTDtUWVBFPVZPSUNFOiszNDYxNjk5Njg3MgpFTUFJTDtUWVBFPVBSRUYsSU5URVJORVQ6aW5mb0Bjb3J0aWpvbGFndW5hY2hpY28uY29tCkFEUjtUWVBFPVdPUkssUE9TVEFMLFBBUkNFTDo7O0NhbGxlIExhIExhZ3VuYSBzL247VG9ycmUgZGVsIE1hcjtNw4PCoWxhZ2E7Mjk3NDA7RXNwYcODwrFhCk9SRzpDb3J0aWpvIExhZ3VuYSBDaGljbwpUSVRMRTpDb250YWN0bwpVUkw6aHR0cHM6Ly9jb3J0aWpvbGFndW5hY2hpY28uY29tCkVORDpWQ0FSRAo=" download="antonio.vcf" class="btn-action vcard-btn" title="Guardar Contacto"><i class="fa-solid fa-address-card"></i> Guardar</a>
                       <a href="https://wa.me/34616996872" target="_blank" class="btn-action whatsapp-btn" title="Enviar WhatsApp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
                     </div>
                   </div>
@@ -2734,43 +2811,9 @@
               </li>
             </ul>
             
-            <div style="margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem;">
-              <a href="https://cortijolagunachico.com/contact-us" target="_blank" class="btn btn-outline" style="width: 100%; font-size: 0.85rem;" data-translate="howToGet">Descargar Guía de Acceso</a>
-              <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem;">
-                <a href="https://www.facebook.com/cortijolagunachico" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-                <div class="info-details">
-                  <h5 data-translate="addressLabel">Ubicación:</h5>
-                  <p>Calle La Laguna s/n, 29740<br>Torre del Mar, Málaga, España</p>
-                </div>
-              </li>
-              <li class="info-item">
-                <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-                <div class="info-details">
-                  <h5 data-translate="phoneLabel">Teléfonos de contacto:</h5>
-                  <p>Santiago: 685 319 023<br>Antonio: 616 996 872</p>
-                  <span class="phone-hours" data-translate="phoneHours">Atención telefónica de 9:00h a 21:00h</span>
-                </div>
-              </li>
-              <li class="info-item">
-                <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
-                <div class="info-details">
-                  <h5 data-translate="emailLabel">Email:</h5>
-                  <p>info@cortijolagunachico.com</p>
-                </div>
-              </li>
-            </ul>
-            
-            <div style="margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem;">
-              <a href="https://cortijolagunachico.com/contact-us" target="_blank" class="btn btn-outline" style="width: 100%; font-size: 0.85rem;" data-translate="howToGet">Descargar Guía de Acceso</a>
-              <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem;">
-                <a href="https://www.facebook.com/cortijolagunachico" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-              </div>
+            <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem;">
+              <a href="https://www.facebook.com/cortijolagunachico" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://instagram.com" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -2958,7 +3001,16 @@
         specDining: "Comedor Integrado",
         specEquip: "Totalmente Equipada",
         specSalon: "65 m² de Superficie",
-        specTV: "Televisión & Sofás"
+        specTV: "Televisión & Sofás",
+        room12Title: "Entradas, Pasillos y Exteriores",
+        room12Desc: "Amplios espacios al aire libre, porches, recibidor y escaleras que conectan la casa con la piscina y la playa.",
+        specPassages: "Zonas de Paso",
+        specExteriors: "Jardines y Patios",
+        labelCheckIn: "Fecha de Entrada:",
+        labelCheckOut: "Fecha de Salida:",
+        btnSearchAvail: "Comprobar disponibilidad",
+        btnBookNow: "Solicitar Reserva",
+        takeMeThere: "Cómo llegar"
       },
       en: {
         navHome: "Home",
@@ -3108,7 +3160,16 @@
         specDining: "Integrated Dining",
         specEquip: "Fully Equipped",
         specSalon: "65 m² Surface Area",
-        specTV: "TV & Sofas"
+        specTV: "TV & Sofas",
+        room12Title: "Entrances, Hallways & Outdoors",
+        room12Desc: "Spacious outdoor areas, porches, hall, and stairs connecting the villa with the pool and beach.",
+        specPassages: "Transit Areas",
+        specExteriors: "Gardens & Patios",
+        labelCheckIn: "Check-in Date:",
+        labelCheckOut: "Check-out Date:",
+        btnSearchAvail: "Check Availability",
+        btnBookNow: "Request Booking",
+        takeMeThere: "How to get there"
       }
     };
 
@@ -3149,6 +3210,108 @@
       if (calcBtn) calcBtn.addEventListener("click", calculateBudget);
       if (calcSeason) calcSeason.addEventListener("change", calculateBudget);
       if (calcNights) calcNights.addEventListener("input", calculateBudget);
+
+      // --- INTERACTIVE AVAILABILITY SEARCH ---
+      const searchCheckIn = document.getElementById("searchCheckIn");
+      const searchCheckOut = document.getElementById("searchCheckOut");
+      const btnSearchAvail = document.getElementById("btnSearchAvail");
+      const searchAvailResult = document.getElementById("searchAvailResult");
+
+      if (btnSearchAvail && searchCheckIn && searchCheckOut && searchAvailResult) {
+        btnSearchAvail.addEventListener("click", () => {
+          const inVal = searchCheckIn.value;
+          const outVal = searchCheckOut.value;
+          
+          if (!inVal || !outVal) {
+            searchAvailResult.style.display = "block";
+            searchAvailResult.style.backgroundColor = "#ffebee";
+            searchAvailResult.style.color = "#c62828";
+            searchAvailResult.style.border = "1px solid #ffcdd2";
+            searchAvailResult.innerText = currentLang === "es" ? "Por favor, introduce ambas fechas." : "Please enter both dates.";
+            return;
+          }
+          
+          const dateIn = new Date(inVal);
+          const dateOut = new Date(outVal);
+          
+          if (dateOut <= dateIn) {
+            searchAvailResult.style.display = "block";
+            searchAvailResult.style.backgroundColor = "#ffebee";
+            searchAvailResult.style.color = "#c62828";
+            searchAvailResult.style.border = "1px solid #ffcdd2";
+            searchAvailResult.innerText = currentLang === "es" ? "La fecha de salida debe ser posterior a la de entrada." : "Departure date must be after arrival date.";
+            return;
+          }
+          
+          const diffTime = Math.abs(dateOut - dateIn);
+          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          if (diffDays < 2) {
+            searchAvailResult.style.display = "block";
+            searchAvailResult.style.backgroundColor = "#ffebee";
+            searchAvailResult.style.color = "#c62828";
+            searchAvailResult.style.border = "1px solid #ffcdd2";
+            searchAvailResult.innerText = currentLang === "es" ? "La estancia mínima es de 2 noches." : "Minimum stay is 2 nights.";
+            return;
+          }
+          
+          if (typeof cachedOccupiedDates === "undefined" || cachedOccupiedDates.size === 0) {
+            searchAvailResult.style.display = "block";
+            searchAvailResult.style.backgroundColor = "#fff3e0";
+            searchAvailResult.style.color = "#e65100";
+            searchAvailResult.style.border = "1px solid #ffe0b2";
+            searchAvailResult.innerText = currentLang === "es" ? "Cargando datos del calendario... Reintenta en unos segundos." : "Loading calendar data... Retry in a few seconds.";
+            return;
+          }
+
+          let current = new Date(dateIn);
+          let isOccupied = false;
+          
+          while (current < dateOut) {
+            const yyyy = current.getFullYear();
+            const mm = String(current.getMonth() + 1).padStart(2, '0');
+            const dd = String(current.getDate()).padStart(2, '0');
+            const dateStr = `${yyyy}-${mm}-${dd}`;
+            
+            if (cachedOccupiedDates.has(dateStr)) {
+              isOccupied = true;
+              break;
+            }
+            current.setDate(current.getDate() + 1);
+          }
+          
+          searchAvailResult.style.display = "block";
+          if (isOccupied) {
+            searchAvailResult.style.backgroundColor = "#ffebee";
+            searchAvailResult.style.color = "#c62828";
+            searchAvailResult.style.border = "1px solid #ffcdd2";
+            searchAvailResult.innerHTML = currentLang === "es" 
+              ? "❌ Ocupado para esas fechas.<br><a href='#disponibilidad' style='color:#c62828;text-decoration:underline;font-weight:700;'>Ver calendario completo</a>" 
+              : "❌ Occupied for those dates.<br><a href='#disponibilidad' style='color:#c62828;text-decoration:underline;font-weight:700;'>View full calendar</a>";
+          } else {
+            searchAvailResult.style.backgroundColor = "#e8f5e9";
+            searchAvailResult.style.color = "#2e7d32";
+            searchAvailResult.style.border = "1px solid #c8e6c9";
+            searchAvailResult.innerHTML = currentLang === "es"
+              ? `✅ ¡Disponible!<br><a href='#contacto' id='bookSearchedDates' style='display:inline-block;margin-top:0.5rem;padding:0.5rem 1rem;background-color:#2e7d32;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;'>Solicitar Reserva</a>`
+              : `✅ Available!<br><a href='#contacto' id='bookSearchedDates' style='display:inline-block;margin-top:0.5rem;padding:0.5rem 1rem;background-color:#2e7d32;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;'>Request Booking</a>`;
+            
+            // Wait to bind event listener
+            setTimeout(() => {
+              const bookBtn = document.getElementById("bookSearchedDates");
+              if (bookBtn) {
+                bookBtn.addEventListener("click", () => {
+                  const formMessage = document.getElementById("formMessage");
+                  if (formMessage) {
+                    formMessage.value = currentLang === "es"
+                      ? `Hola, he comprobado disponibilidad para las fechas:\nEntrada: ${inVal}\nSalida: ${outVal}\ny están libres. Quisiera solicitar una reserva.`
+                      : `Hello, I checked availability for dates:\nArrival: ${inVal}\nDeparture: ${outVal}\nand they are free. I would like to request a booking.`;
+                  }
+                });
+              }
+            }, 50);
+          }
+        });
+      }
 
       // --- LANGUAGE AND TRANSLATIONS ---
       let currentLang = localStorage.getItem("cortijo_lang") || "es";
@@ -3645,7 +3808,7 @@
         }
         const btnBookNow = document.getElementById("btnBookNow");
         if (btnBookNow) {
-          btnBookNow.innerText = translations[lang].btnBookNow || (lang === "es" ? "Â¡Â¡Reserva ya!!" : "Book now!!");
+          btnBookNow.innerText = translations[lang].btnBookNow || (lang === "es" ? "Solicitar Reserva" : "Request Booking");
         }
       };
 
