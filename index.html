@@ -3888,6 +3888,29 @@
         }, 5000);
       });
       
+      // --- IFRAME ANCHOR NAVIGATION (ODOO COMPATIBILITY) ---
+      const scrollToHash = () => {
+        const hash = window.location.hash;
+        if (hash) {
+          const targetEl = document.getElementById(hash.substring(1));
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      };
+      window.addEventListener("hashchange", scrollToHash);
+      setTimeout(scrollToHash, 500);
+
+      window.addEventListener("message", (event) => {
+        if (typeof event.data === "string" && event.data.startsWith("scroll:")) {
+          const targetId = event.data.substring(7);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
+
       // Initial load calendar
       loadCalendar();
     });
