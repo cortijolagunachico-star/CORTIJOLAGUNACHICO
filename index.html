@@ -2057,19 +2057,6 @@
       </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-      <div class="about-grid">
-        <div class="about-image-wrapper">
-          <img src="/web/image/12071/Entrada%20exterior.jpg" alt="Cortijo Exterior" class="about-img">
-        </div>
-        <div class="about-info">
-          <h2 data-translate="aboutTitle">Un Lugar Singular en la Costa del Sol</h2>
-          <p data-translate="aboutText1">Cortijo Laguna Chico es el fruto del esfuerzo y cariño de nuestra familia a lo largo de muchos años. Lo que comenzó como un hogar familiar frente al mar, ha sido transformado en una cuidada vivienda turística de alojamiento rural (VTAR/MA/00367), posibilitando compartir la magia y la tranquilidad de este rincón único con personas que buscan un ambiente acogedor, familiar y natural.</p>
-          <p data-translate="aboutText2">Ubicado en primera línea de playa, combinamos la esencia rústica de un cortijo tradicional andaluz con las comodidades modernas, convirtiéndolo en el escenario idóneo tanto para una escapada reparadora con amigos o familia como para la celebración de tus eventos más importantes.</p>
-        </div>
-      </div>
-    </section>
 
     <!-- Features Section -->
     <section class="section section-bg-secondary">
@@ -2543,12 +2530,12 @@
             <h3 data-translate="checkAvailTitle">Comprueba Disponibilidad</h3>
             <div class="avail-search-form" style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
               <div class="input-group">
-                <label for="searchCheckIn" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--primary);" data-translate="labelCheckIn">Fecha de Entrada:</label>
-                <input type="date" id="searchCheckIn" class="form-input" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+                <label for="searchCheckIn" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--bg-white);" data-translate="labelCheckIn">Fecha de Entrada:</label>
+                <input type="date" id="searchCheckIn" class="form-input" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; background-color: var(--bg-white); color: var(--text-dark);">
               </div>
               <div class="input-group">
-                <label for="searchCheckOut" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--primary);" data-translate="labelCheckOut">Fecha de Salida:</label>
-                <input type="date" id="searchCheckOut" class="form-input" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+                <label for="searchCheckOut" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--bg-white);" data-translate="labelCheckOut">Fecha de Salida:</label>
+                <input type="date" id="searchCheckOut" class="form-input" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; background-color: var(--bg-white); color: var(--text-dark);">
               </div>
               <button type="button" id="btnSearchAvail" class="btn btn-primary" style="background-color: var(--accent); color: white; width: 100%; padding: 1rem; border-radius: 8px; font-size: 1.05rem;" data-translate="btnSearchAvail">Comprobar disponibilidad</button>
               <div id="searchAvailResult" style="margin-top: 0.5rem; font-weight: 600; text-align: center; border-radius: 6px; padding: 0.8rem; display: none; line-height: 1.5;"></div>
@@ -2624,81 +2611,6 @@
   </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="section" id="galeria">
-      <div class="section-header">
-        <span class="section-subtitle" data-translate="gallerySubtitle">Explora cada rincón de nuestro trozo de paraíso</span>
-        <h2 class="section-title" data-translate="galleryTitle">Galería de Fotos</h2>
-      </div>
-      
-      <!-- Filter Buttons -->
-      <div class="gallery-filter-container">
-        <button class="filter-btn active" data-filter="all" data-translate="filterAll">Todos</button>
-        <button class="filter-btn" data-filter="exteriors" data-translate="filterExteriors">Exteriores</button>
-        <button class="filter-btn" data-filter="interiors" data-translate="filterInteriors">Instalaciones</button>
-        <button class="filter-btn" data-filter="events" data-translate="filterEvents">Eventos</button>
-      </div>
-      
-      <!-- Gallery Grid -->
-      <div class="gallery-grid">
-        <!-- Item 1 (Exterior) -->
-        <div class="gallery-item" data-category="exteriors">
-          <img src="/web/image/12071/Entrada%20exterior.jpg" alt="Exteriores Cortijo" class="gallery-img">
-          <div class="gallery-overlay">
-            <span class="gallery-title">Entrada Principal</span>
-          </div>
-        </div>
-        <!-- Item 2 (Exterior) -->
-        <div class="gallery-item" data-category="exteriors">
-          <img src="/web/image/12068/Casa%20desde%20Piscina.jpg" alt="Piscina Cortijo" class="gallery-img">
-          <div class="gallery-overlay">
-            <span class="gallery-title">Piscina y Jardines</span>
-          </div>
-        </div>
-        <!-- Item 3 (Interior) -->
-        <div class="gallery-item" data-category="interiors">
-          <img src="/web/image/12098/Sal%C3%B3n.jpg" alt="Salón Familiar" class="gallery-img">
-          <div class="gallery-overlay">
-            <span class="gallery-title">Gran Salón</span>
-          </div>
-        </div>
-        <!-- Item 4 (Interior) -->
-        <div class="gallery-item" data-category="interiors">
-          <img src="/web/image/12069/Cocina.jpg" alt="Cocina Profesional" class="gallery-img">
-          <div class="gallery-overlay">
-            <span class="gallery-title">Cocina Rústica</span>
-          </div>
-        </div>
-        <!-- Item 5 (Interior) -->
-        <div class="gallery-item" data-category="interiors">
-          <img src="/web/image/12070/Comedor.jpg" alt="Comedor Comunal" class="gallery-img">
-          <div class="gallery-overlay">
-            <span class="gallery-title">Comedor Conectado</span>
-          </div>
-        </div>
-        <!-- Item 6 (Event) -->
-        <div class="gallery-item" data-category="events">
-          <img src="/web/image/12097/Terraza%201.jpg" alt="Terraza Eventos" class="gallery-img">
-          <div class="gallery-overlay">
-            <span class="gallery-title">Terraza Planta Alta</span>
-          </div>
-        </div>
-        <!-- Item 7 (Event) -->
-        <div class="gallery-item" data-category="events">
-          <img src="/web/image/12100/Porche%20piscina.jpg" alt="Porche Eventos" class="gallery-img">
-          <div class="gallery-overlay">
-            <span class="gallery-title">Porche Jardín</span>
-          </div>
-        </div>
-        <!-- Item 8 (Exterior) -->
-        <div class="gallery-item" data-category="exteriors">
-          <img src="/web/image/12103/Pasilla%20Playa.jpg" alt="Acceso Playa" class="gallery-img">
-          <div class="gallery-overlay">
-            <span class="gallery-title">Salida Directa al Mar</span>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Contact Section -->
     <section class="section" id="contacto">
@@ -3264,7 +3176,8 @@
           }
 
           let current = new Date(dateIn);
-          let isOccupied = false;
+          let occupiedCount = 0;
+          let totalCount = 0;
           
           while (current < dateOut) {
             const yyyy = current.getFullYear();
@@ -3273,21 +3186,16 @@
             const dateStr = `${yyyy}-${mm}-${dd}`;
             
             if (cachedOccupiedDates.has(dateStr)) {
-              isOccupied = true;
-              break;
+              occupiedCount++;
             }
+            totalCount++;
             current.setDate(current.getDate() + 1);
           }
           
           searchAvailResult.style.display = "block";
-          if (isOccupied) {
-            searchAvailResult.style.backgroundColor = "#ffebee";
-            searchAvailResult.style.color = "#c62828";
-            searchAvailResult.style.border = "1px solid #ffcdd2";
-            searchAvailResult.innerHTML = currentLang === "es" 
-              ? "❌ Ocupado para esas fechas.<br><a href='#disponibilidad' style='color:#c62828;text-decoration:underline;font-weight:700;'>Ver calendario completo</a>" 
-              : "❌ Occupied for those dates.<br><a href='#disponibilidad' style='color:#c62828;text-decoration:underline;font-weight:700;'>View full calendar</a>";
-          } else {
+          
+          if (occupiedCount === 0) {
+            // State 1: Fully Available
             searchAvailResult.style.backgroundColor = "#e8f5e9";
             searchAvailResult.style.color = "#2e7d32";
             searchAvailResult.style.border = "1px solid #c8e6c9";
@@ -3295,7 +3203,6 @@
               ? `✅ ¡Disponible!<br><a href='#contacto' id='bookSearchedDates' style='display:inline-block;margin-top:0.5rem;padding:0.5rem 1rem;background-color:#2e7d32;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;'>Solicitar Reserva</a>`
               : `✅ Available!<br><a href='#contacto' id='bookSearchedDates' style='display:inline-block;margin-top:0.5rem;padding:0.5rem 1rem;background-color:#2e7d32;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;'>Request Booking</a>`;
             
-            // Wait to bind event listener
             setTimeout(() => {
               const bookBtn = document.getElementById("bookSearchedDates");
               if (bookBtn) {
@@ -3305,6 +3212,36 @@
                     formMessage.value = currentLang === "es"
                       ? `Hola, he comprobado disponibilidad para las fechas:\nEntrada: ${inVal}\nSalida: ${outVal}\ny están libres. Quisiera solicitar una reserva.`
                       : `Hello, I checked availability for dates:\nArrival: ${inVal}\nDeparture: ${outVal}\nand they are free. I would like to request a booking.`;
+                  }
+                });
+              }
+            }, 50);
+          } else if (occupiedCount === totalCount) {
+            // State 2: Fully Occupied
+            searchAvailResult.style.backgroundColor = "#ffebee";
+            searchAvailResult.style.color = "#c62828";
+            searchAvailResult.style.border = "1px solid #ffcdd2";
+            searchAvailResult.innerHTML = currentLang === "es" 
+              ? "❌ Ocupado para esas fechas.<br><a href='#disponibilidad' style='color:#c62828;text-decoration:underline;font-weight:700;'>Ver calendario completo</a>" 
+              : "❌ Occupied for those dates.<br><a href='#disponibilidad' style='color:#c62828;text-decoration:underline;font-weight:700;'>View full calendar</a>";
+          } else {
+            // State 3: Partially Available
+            searchAvailResult.style.backgroundColor = "#fff3e0";
+            searchAvailResult.style.color = "#e65100";
+            searchAvailResult.style.border = "1px solid #ffe0b2";
+            searchAvailResult.innerHTML = currentLang === "es"
+              ? `⚠️ Disponibilidad parcial.<br>Algunos de los días seleccionados están libres y otros ocupados.<br><a href='#contacto' id='bookPartialDates' style='display:inline-block;margin-top:0.5rem;padding:0.5rem 1rem;background-color:#e65100;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;'>Contactar para más info</a>`
+              : `⚠️ Partial availability.<br>Some of the selected days are free and others are occupied.<br><a href='#contacto' id='bookPartialDates' style='display:inline-block;margin-top:0.5rem;padding:0.5rem 1rem;background-color:#e65100;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;'>Contact for info</a>`;
+            
+            setTimeout(() => {
+              const bookBtn = document.getElementById("bookPartialDates");
+              if (bookBtn) {
+                bookBtn.addEventListener("click", () => {
+                  const formMessage = document.getElementById("formMessage");
+                  if (formMessage) {
+                    formMessage.value = currentLang === "es"
+                      ? `Hola, he consultado las fechas:\nEntrada: ${inVal}\nSalida: ${outVal}\ny me indica que hay disponibilidad parcial. Quisiera consultar qué días están libres y solicitar más información.`
+                      : `Hello, I checked dates:\nArrival: ${inVal}\nDeparture: ${outVal}\nand it shows partial availability. I would like to consult which days are free and request more info.`;
                   }
                 });
               }
