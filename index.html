@@ -2089,10 +2089,10 @@
       transform: scale(1.04) !important;
     }
 
-    /* Yellow/Gold Theme Section (Features) - Whole background in gold, no white cards */
+    /* Sky Blue Theme Section (Features) - Whole background in sky blue, slightly darker cards */
     .cortijo-website .section-bg-dark {
-      background-color: #d0c037 !important; /* Color específico del logo */
-      color: #1c211e !important;
+      background-color: #4687b3 !important; /* Azul más atenuado y sofisticado */
+      color: #ffffff !important;
       max-width: 100% !important;
       width: 100% !important;
       padding: 0 !important;
@@ -2103,35 +2103,35 @@
       padding: 6rem 2rem;
     }
     .cortijo-website .section-bg-dark .section-title {
-      color: #1c211e !important;
+      color: #ffffff !important;
     }
     .cortijo-website .section-bg-dark .section-subtitle {
-      color: #ffffff !important; /* White subtitle on gold background */
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
-      margin-bottom: 2rem !important; /* Más margen para subtítulo */
+      color: rgba(255, 255, 255, 0.9) !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+      margin-bottom: 2rem !important;
       display: block !important;
     }
     .cortijo-website .section-bg-dark .section-header {
-      margin-bottom: 5.5rem !important; /* Aumentar margen de cabecera a la rejilla */
+      margin-bottom: 5.5rem !important;
     }
     .cortijo-website .section-bg-dark .feature-card {
-      background-color: transparent !important; /* Sin cajas blancas */
-      border: none !important;
-      color: #1c211e !important;
-      box-shadow: none !important;
+      background-color: rgba(0, 0, 0, 0.12) !important; /* Recuadro un poco más oscuro */
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      color: rgba(255, 255, 255, 0.9) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05) !important;
+      border-radius: 12px !important;
     }
     .cortijo-website .section-bg-dark .feature-card h4 {
-      color: #1c211e !important;
+      color: #ffffff !important;
       font-weight: 700 !important;
     }
     .cortijo-website .section-bg-dark .feature-card p {
-      color: #1c211e !important;
-      opacity: 0.9 !important;
+      color: rgba(255, 255, 255, 0.8) !important;
     }
     .cortijo-website .section-bg-dark .feature-icon-box {
-      background-color: rgba(0, 0, 0, 0.05) !important; /* Círculo sutil oscuro */
-      color: #1c211e !important;
-      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      background-color: rgba(255, 255, 255, 0.15) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
     .cortijo-website .section-bg-dark .feature-card:hover {
       transform: translateY(-8px) !important;
@@ -3765,20 +3765,22 @@
             method: "POST",
             body: formData
           })
-          .then(response => response.json())
-          .then(data => {
-            if (data.success === "true" || data.success === true) {
-              if (formStatus) {
-                formStatus.className = "form-status success";
-                formStatus.innerHTML = currentLang === "es" 
-                  ? "¡Mensaje enviado con éxito! Nos pondremos en contacto contigo en breve." 
-                  : "Message sent successfully! We will get in touch with you shortly.";
-                contactForm.reset();
-                if (typeof calcInquireBtn !== "undefined" && calcInquireBtn) calcInquireBtn.style.display = "none";
-                if (typeof calcResult !== "undefined" && calcResult) calcResult.innerHTML = `- €`;
-              }
+          .then(response => {
+            if (response.ok) {
+              return response.json();
             } else {
-              throw new Error("FormSubmit failed");
+              throw new Error("HTTP error " + response.status);
+            }
+          })
+          .then(data => {
+            if (formStatus) {
+              formStatus.className = "form-status success";
+              formStatus.innerHTML = currentLang === "es" 
+                ? "¡Mensaje enviado con éxito! Nos pondremos en contacto contigo en breve." 
+                : "Message sent successfully! We will get in touch with you shortly.";
+              contactForm.reset();
+              if (typeof calcInquireBtn !== "undefined" && calcInquireBtn) calcInquireBtn.style.display = "none";
+              if (typeof calcResult !== "undefined" && calcResult) calcResult.innerHTML = `- €`;
             }
           })
           .catch((error) => {
