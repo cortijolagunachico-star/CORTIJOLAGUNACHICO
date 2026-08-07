@@ -2089,10 +2089,10 @@
       transform: scale(1.04) !important;
     }
 
-    /* Sky Blue Theme Section (Features) - Whole background in sky blue, slightly darker cards */
+    /* Dark Slate Blue Theme Section (Features) - Whole background in #314145, translucent dark cards */
     .cortijo-website .section-bg-dark {
-      background-color: #98c9e9 !important; /* Celeste suave */
-      color: #1c3d5a !important;
+      background-color: #314145 !important; /* Muted Dark Blue */
+      color: #ffffff !important;
       max-width: 100% !important;
       width: 100% !important;
       padding: 0 !important;
@@ -2103,11 +2103,11 @@
       padding: 6rem 2rem;
     }
     .cortijo-website .section-bg-dark .section-title {
-      color: #1c3d5a !important;
+      color: #ffffff !important;
     }
     .cortijo-website .section-bg-dark .section-subtitle {
-      color: #1c3d5a !important;
-      text-shadow: none !important;
+      color: var(--accent) !important; /* Gold subtitle */
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
       margin-bottom: 2rem !important;
       display: block !important;
     }
@@ -2115,31 +2115,31 @@
       margin-bottom: 5.5rem !important;
     }
     .cortijo-website .section-bg-dark .feature-card {
-      background-color: rgba(255, 255, 255, 0.45) !important; /* Recuadro translúcido blanco */
-      border: 1px solid rgba(255, 255, 255, 0.5) !important;
-      color: #1c3d5a !important;
-      box-shadow: 0 8px 32px rgba(28, 61, 90, 0.04) !important;
+      background-color: rgba(255, 255, 255, 0.05) !important; /* Soft white translucent cards */
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      color: rgba(255, 255, 255, 0.85) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
       border-radius: 12px !important;
     }
     .cortijo-website .section-bg-dark .feature-card h4 {
-      color: #1c3d5a !important;
+      color: #ffffff !important;
       font-weight: 700 !important;
     }
     .cortijo-website .section-bg-dark .feature-card p {
-      color: #244b70 !important;
+      color: rgba(255, 255, 255, 0.75) !important;
     }
     .cortijo-website .section-bg-dark .feature-icon-box {
-      background-color: rgba(255, 255, 255, 0.6) !important;
-      color: #1c3d5a !important;
-      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+      background-color: rgba(255, 255, 255, 0.04) !important;
+      color: var(--accent) !important; /* Gold icon */
+      border: 1px solid rgba(255, 255, 255, 0.06) !important;
     }
     .cortijo-website .section-bg-dark .feature-card:hover {
       transform: translateY(-8px) !important;
-      background-color: rgba(255, 255, 255, 0.7) !important;
-      border-color: #1c3d5a !important;
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border-color: var(--accent) !important;
     }
     .cortijo-website .section-bg-dark .feature-card:hover .feature-icon-box {
-      background-color: #1c3d5a !important;
+      background-color: var(--accent) !important;
       color: #ffffff !important;
     }
 
@@ -2786,6 +2786,11 @@
             <p class="calc-warning-text" data-translate="calcWarning" style="margin-top: 1.5rem;">* Nota: Estancia mínima general de 2 noches. Alquiler por las 9 habitaciones de la casa para hasta 18 personas.</p>
           </div>
         </div>
+
+        <!-- Rates Disclaimer (IVA / VAT) -->
+        <div class="rates-disclaimer" style="margin-top: 3rem; text-align: center; font-size: 0.95rem; color: var(--text-muted); font-style: italic; font-weight: 500;" data-translate="ratesDisclaimer">
+          * Si eres empresa o un profesional en el ejercicio de su actividad, a estos precios habrá que sumarles el IVA al 21%.
+        </div>
       </div>
     </section>
 
@@ -3099,6 +3104,7 @@
         eventsCTA: "Solicitar Dosier de Eventos",
         ratesTitle: "Tarifas Oficiales 2026/2027",
         ratesSubtitle: "Precios transparentes según la época del año para hasta 18 huéspedes",
+        ratesDisclaimer: "* Si eres empresa o un profesional en el ejercicio de su actividad, a estos precios habrá que sumarles el IVA al 21%.",
         seasonHigh: "Temporada Alta",
         seasonHighDesc: "Julio, Agosto, Navidad y fines de semana de Mayo, Junio y Septiembre.",
         seasonMid: "Temporada Media",
@@ -3258,6 +3264,7 @@
         eventsCTA: "Request Event Dossier",
         ratesTitle: "Official Rates 2026/2027",
         ratesSubtitle: "Transparent pricing based on season for up to 18 guests",
+        ratesDisclaimer: "* If you are a company or a professional in the exercise of your activity, 21% VAT must be added to these prices.",
         seasonHigh: "High Season",
         seasonHighDesc: "July, August, Christmas, and weekends in May, June, and September.",
         seasonMid: "Mid Season",
