@@ -692,7 +692,7 @@
     }
 
     .cortijo-website .calculator-card {
-      background-color: var(--primary);
+      background-color: #314145 !important;
       color: var(--bg-white);
       padding: 2.5rem 2rem;
       border-radius: var(--border-radius);
@@ -1065,7 +1065,7 @@
 
     /* Footer */
     .cortijo-website .site-footer {
-      background-color: var(--primary);
+      background-color: #314145 !important;
       color: var(--bg-secondary);
       padding: 3.5rem 2rem 2rem 2rem;
       border-top: 1px solid var(--border);
@@ -1259,6 +1259,18 @@
         padding: 4rem 1.25rem;
       }
       
+      .cortijo-website .section-bg-dark .section-subtitle {
+        margin-bottom: 3.5rem !important; /* Separar márgenes en móvil */
+        margin-top: 1rem !important;
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+      }
+      .cortijo-website .section-bg-dark .section-inner {
+        padding-top: 8rem !important; /* Más espaciado respecto a la foto del hero superior */
+        padding-bottom: 4rem !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+      }
       .cortijo-website .section-bg-secondary .section-inner {
         padding: 4rem 1.25rem;
       }
@@ -1273,8 +1285,22 @@
       }
 
       .cortijo-website .menu-toggle {
-        display: flex;
-        z-index: 1001;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 25px !important;
+        height: 18px !important;
+        z-index: 1001 !important;
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      .cortijo-website .menu-toggle span {
+        background-color: #314145 !important; /* Color oscuro visible */
+        display: block !important;
+        height: 2.5px !important; /* Grosor un pelín más marcado */
+        width: 100% !important;
+        border-radius: 2px !important;
       }
 
       .cortijo-website .menu-toggle.active span:nth-child(1) {
@@ -1569,7 +1595,7 @@
 
     /* Left Sidebar: Photo background with overlay */
     .cortijo-cal-widget .sidebar-photo {
-      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('media/rotonda.jpg') no-repeat center center/cover;
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('/web/image/12931/Roberto%20%26%20Constanza-285.jpg') no-repeat center center/cover;
       padding: 3rem 2rem;
       color: var(--bg-white);
       display: flex;
@@ -1908,6 +1934,7 @@
       .cortijo-cal-widget .sidebar-photo {
         height: 150px;
         padding: 1.5rem;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('/web/image/12932/Roberto%20%26%20Constanza-764.jpg') !important;
       }
 
       .cortijo-cal-widget .sidebar-footer {
@@ -2110,6 +2137,9 @@
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
       margin-bottom: 2rem !important;
       display: block !important;
+      font-size: 1.25rem !important; /* Texto más grande en web */
+      letter-spacing: 1.5px !important;
+      font-weight: 500 !important;
     }
     .cortijo-website .section-bg-dark .section-header {
       margin-bottom: 5.5rem !important;
@@ -2172,6 +2202,45 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Animaciones escalonadas de entrada para tarjetas */
+    .cortijo-website .reveal .feature-card,
+    .cortijo-website .reveal .room-card {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .cortijo-website .reveal.active .feature-card,
+    .cortijo-website .reveal.active .room-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Retardos escalonados para comodidades */
+    .cortijo-website .reveal.active .feature-card:nth-child(1) { transition-delay: 0.05s; }
+    .cortijo-website .reveal.active .feature-card:nth-child(2) { transition-delay: 0.1s; }
+    .cortijo-website .reveal.active .feature-card:nth-child(3) { transition-delay: 0.15s; }
+    .cortijo-website .reveal.active .feature-card:nth-child(4) { transition-delay: 0.2s; }
+    .cortijo-website .reveal.active .feature-card:nth-child(5) { transition-delay: 0.25s; }
+    .cortijo-website .reveal.active .feature-card:nth-child(6) { transition-delay: 0.3s; }
+    .cortijo-website .reveal.active .feature-card:nth-child(7) { transition-delay: 0.35s; }
+    .cortijo-website .reveal.active .feature-card:nth-child(8) { transition-delay: 0.4s; }
+    .cortijo-website .reveal.active .feature-card:nth-child(9) { transition-delay: 0.45s; }
+
+    /* Retardos escalonados para dormitorios */
+    .cortijo-website .reveal.active .room-card:nth-child(1) { transition-delay: 0.05s; }
+    .cortijo-website .reveal.active .room-card:nth-child(2) { transition-delay: 0.1s; }
+    .cortijo-website .reveal.active .room-card:nth-child(3) { transition-delay: 0.15s; }
+    .cortijo-website .reveal.active .room-card:nth-child(4) { transition-delay: 0.2s; }
+    .cortijo-website .reveal.active .room-card:nth-child(5) { transition-delay: 0.25s; }
+    .cortijo-website .reveal.active .room-card:nth-child(6) { transition-delay: 0.3s; }
+    .cortijo-website .reveal.active .room-card:nth-child(7) { transition-delay: 0.35s; }
+    .cortijo-website .reveal.active .room-card:nth-child(8) { transition-delay: 0.4s; }
+    .cortijo-website .reveal.active .room-card:nth-child(9) { transition-delay: 0.45s; }
+    .cortijo-website .reveal.active .room-card:nth-child(10) { transition-delay: 0.5s; }
+    .cortijo-website .reveal.active .room-card:nth-child(11) { transition-delay: 0.55s; }
+    .cortijo-website .reveal.active .room-card:nth-child(12) { transition-delay: 0.6s; }
 
     /* --- PREMIUM COOKIE BANNER --- */
     .cortijo-website .cookie-banner {
@@ -2344,7 +2413,7 @@
           <div class="feature-card">
             <div class="feature-icon-box"><i class="fa-solid fa-kitchen-set"></i></div>
             <h4 data-translate="featureCocinaTitle">Cocina con Comedor</h4>
-            <p data-translate="featureCocinaDesc">Cocina de estilo profesional totalmente equipada, conectada a un comedor para disfrutar de largas sobremesas.</p>
+            <p data-translate="featureCocinaDesc">Cocina de estilo profesional totalmente equipada, conectada a un comedor con chimenea para disfrutar de largas sobremesas.</p>
           </div>
           <!-- Card 7 -->
           <div class="feature-card">
@@ -2357,6 +2426,12 @@
             <div class="feature-icon-box"><i class="fa-solid fa-tree"></i></div>
             <h4 data-translate="featureJardinesTitle">Jardines Exóticos</h4>
             <p data-translate="featureJardinesDesc">Amplias zonas verdes con vegetación mediterránea, palmeras y rincones de sombra ideales para la lectura.</p>
+          </div>
+          <!-- Card 9 -->
+          <div class="feature-card">
+            <div class="feature-icon-box"><i class="fa-solid fa-fire"></i></div>
+            <h4 data-translate="featureBarbacoaTitle">Barbacoa en el Jardín</h4>
+            <p data-translate="featureBarbacoaDesc">Zona de barbacoa equipada al aire libre para disfrutar de deliciosas comidas en el jardín.</p>
           </div>
         </div>
       </div>
@@ -2628,7 +2703,7 @@
             <span><i class="fa-solid fa-utensils"></i> <span data-translate="specDining">Comedor Integrado</span></span>
             <span><i class="fa-solid fa-fire-burner"></i> <span data-translate="specEquip">Completamente Equipada</span></span>
           </p>
-          <p data-translate="room10Desc" class="room-desc">Cocina equipada conectada al comedor para disfrutar de largas sobremesas.</p>
+          <p data-translate="room10Desc" class="room-desc">Cocina equipada conectada al comedor con chimenea para disfrutar de largas sobremesas.</p>
         </div>
 
         <!-- Room 11 (Salón) -->
@@ -2712,10 +2787,10 @@
         </div>
         
         <div class="events-collage">
-          <img src="/web/image/12080/evento1.jpg" alt="Evento 1" class="collage-img">
-          <img src="/web/image/12082/evento%202.jpg" alt="Evento 2" class="collage-img">
-          <img src="/web/image/12079/Evento3.jpg" alt="Evento 3" class="collage-img">
-          <img src="/web/image/12081/Evento%204.jpg" alt="Evento 4" class="collage-img">
+          <img src="/web/image/12936/Roberto%20%26%20Constanza-579.jpg" alt="Evento 1" class="collage-img">
+          <img src="/web/image/12935/Roberto%20%26%20Constanza-383.jpg" alt="Evento 2" class="collage-img">
+          <img src="/web/image/12934/Roberto%20%26%20Constanza-291.jpg" alt="Evento 3" class="collage-img">
+          <img src="/web/image/12933/Roberto%20%26%20Constanza-533.jpg" alt="Evento 4" class="collage-img">
         </div>
       </div>
     </section>
@@ -3055,11 +3130,13 @@
         featureSalonTitle: "Gran Salón de 65m²",
         featureSalonDesc: "Un espacio de reunión amplio y confortable, para disfrutar con todo el grupo.",
         featureCocinaTitle: "Cocina con Comedor",
-        featureCocinaDesc: "Cocina  equipada conectada al comedor para disfrutar de largas sobremesas.",
+        featureCocinaDesc: "Cocina equipada conectada al comedor con chimenea para disfrutar de largas sobremesas.",
         featureWifiTitle: "Fibra 1 Gbps",
         featureWifiDesc: "Conexión a internet de alta velocidad (1 Gbps) en todos las habitaciones, por si necesitas teletrabajar o compartir tus momentos.",
         featureJardinesTitle: "Jardines Exóticos",
         featureJardinesDesc: "Amplias zonas verdes con vegetación mediterránea, palmeras y rincones de sombra ideales para la lectura.",
+        featureBarbacoaTitle: "Barbacoa en el Jardín",
+        featureBarbacoaDesc: "Zona de barbacoa equipada al aire libre para disfrutar de deliciosas comidas en el jardín.",
         
         roomsTitle: "Nuestros Dormitorios",
         roomsSubtitle: "Espacios diseñados para tu descanso y confort",
@@ -3168,7 +3245,7 @@
         availabilitySubtitle: "Consulta las fechas libres para planificar tu estancia",
         filterCommon: "Zonas Comunes",
         room10Title: "Cocina con Comedor",
-        room10Desc: "Cocina equipada conectada al comedor para disfrutar de largas sobremesas.",
+        room10Desc: "Cocina equipada conectada al comedor con chimenea para disfrutar de largas sobremesas.",
         room11Title: "Gran Salón",
         room11Desc: "Un espacio de reunión amplio y confortable, para disfrutar con todo el grupo.",
         specKitchen: "Cocina Profesional",
@@ -3215,11 +3292,13 @@
         featureSalonTitle: "Large 65m² Lounge",
         featureSalonDesc: "A spacious and comfortable meeting space with a TV and large sofas for the entire group.",
         featureCocinaTitle: "Kitchen & Dining",
-        featureCocinaDesc: "Equipped kitchen connected to the dining room to enjoy long dinners.",
+        featureCocinaDesc: "Equipped kitchen connected to the dining room with a fireplace to enjoy long dinners.",
         featureWifiTitle: "1 Gbps Fiber",
         featureWifiDesc: "High-speed internet connection throughout the estate, in case you need to work remotely or share memories.",
         featureJardinesTitle: "Exotic Gardens",
         featureJardinesDesc: "Spacious green areas with Mediterranean plants, palm trees, and shady spots ideal for reading.",
+        featureBarbacoaTitle: "Garden Barbecue",
+        featureBarbacoaDesc: "Equipped outdoor BBQ area to enjoy delicious meals in the garden with ocean views.",
         
         roomsTitle: "Our Bedrooms",
         roomsSubtitle: "Spaces designed for your rest and comfort",
@@ -3328,7 +3407,7 @@
         availabilitySubtitle: "Check open dates to plan your stay",
         filterCommon: "Common Areas",
         room10Title: "Kitchen & Dining",
-        room10Desc: "Equipped kitchen connected to the dining room to enjoy long dinners.",
+        room10Desc: "Equipped kitchen connected to the dining room with a fireplace to enjoy long dinners.",
         room11Title: "Grand Lounge",
         room11Desc: "A spacious and comfortable meeting space to enjoy with the whole group.",
         specKitchen: "Professional Kitchen",
