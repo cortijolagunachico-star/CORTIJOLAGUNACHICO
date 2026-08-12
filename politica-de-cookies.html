@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Cookies y Privacidad · Cortijo Laguna Chico</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-primary: hsl(38, 30%, 98%);
+      --bg-white: #ffffff;
+      --text-dark: hsl(135, 6%, 16%);
+      --text-muted: hsl(135, 4%, 40%);
+      --primary: hsl(133, 13%, 28%);
+      --accent: hsl(20, 52%, 55%);
+      --border: hsl(38, 15%, 85%);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text-dark);
+      background-color: var(--bg-primary);
+      line-height: 1.7;
+      padding: 0;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .btn-back:hover {
+      background-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .lang-btn.active {
+      background-color: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* Content Layout */
+    .content-wrapper {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .card {
+      background-color: var(--bg-white);
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      padding: 3rem;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      color: var(--primary);
+      font-size: 2.25rem;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--bg-primary);
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-family: var(--font-serif);
+      color: var(--primary);
+      font-size: 1.15rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: var(--text-dark);
+    }
+
+    ul {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--primary);
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* Footer Styles */
+    .footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      background-color: var(--bg-white);
+      margin-top: 5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header {
+        padding: 1rem;
+      }
+      .content-wrapper {
+        margin: 1.5rem auto;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo-link">
+        <img src="/web/image/12140/cortijo.png" alt="Cortijo Laguna Chico" class="logo-img">
+      </a>
+      
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        
+        <a href="index.html" class="btn-back" id="btnBack">
+          <i class="fa-solid fa-arrow-left"></i> <span id="btnBackText">Volver</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+    <div class="card">
+      
+      <!-- SPANISH CONTENT -->
+      <div id="content-es">
+        <h1>Política de Cookies y Privacidad</h1>
+        
+        <h2>1. Política de Cookies</h2>
+        <p>En cumplimiento de la Ley 34/2002 de 11 de julio de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSICE), te informamos de que este sitio web <strong>Cortijo Laguna Chico</strong> utiliza cookies propias y de terceros.</p>
+        <p>Una cookie es un pequeño archivo de texto que se descarga en tu navegador con el fin de almacenar datos para agilizar tu experiencia de navegación y garantizar el correcto funcionamiento de las características interactivas de la página.</p>
+        
+        <h3>Tipos de cookies que utilizamos</h3>
+        <ul>
+          <li><strong>Cookies técnicas (necesarias):</strong> Permiten el correcto funcionamiento de la web, la carga dinámica de imágenes de la base de datos de Odoo, el funcionamiento del calendario de reservas y el envío de consultas de contacto.</li>
+          <li><strong>Cookies de personalización:</strong> Recuerdan tus preferencias de idioma seleccionadas (Español o Inglés) para que no tengas que configurarlo en cada visita.</li>
+          <li><strong>Cookies de análisis:</strong> Nos permiten obtener estadísticas anónimas de visitas para corregir errores de velocidad y usabilidad.</li>
+        </ul>
+
+        <h3>Cómo desactivar las cookies</h3>
+        <p>Puedes desactivar, bloquear o eliminar las cookies instaladas en tu equipo en cualquier momento mediante la configuración de las opciones de tu navegador web. Ten en cuenta que si deshabilitas las cookies técnicas necesarias, algunas funcionalidades interactivas (como el calendario o el formulario de reserva) podrían dejar de funcionar correctamente.</p>
+
+        <hr>
+
+        <h2>2. Política de Privacidad</h2>
+        <p>De conformidad con el Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), te informamos de que los datos de carácter personal que nos facilites a través de nuestro formulario de reserva o contacto serán tratados por <strong>Rural Factory, S.L.</strong> como Responsable del Tratamiento.</p>
+        <p>La finalidad del tratamiento es gestionar tu solicitud de reserva, atender tus dudas e informarte sobre la disponibilidad del alojamiento. Tus datos no serán cedidos a terceros salvo obligación legal. Puedes ejercer tus derechos de acceso, rectificación, supresión y oposición escribiendo a nuestro correo de contacto: <strong>info@cortijolagunachico.com</strong>.</p>
+      </div>
+
+      <!-- ENGLISH CONTENT -->
+      <div id="content-en" style="display: none;">
+        <h1>Cookies and Privacy Policy</h1>
+        
+        <h2>1. Cookies Policy</h2>
+        <p>In compliance with Law 34/2002 of July 11 on Information Society Services and Electronic Commerce (LSSICE), we inform you that this website <strong>Cortijo Laguna Chico</strong> uses own and third-party cookies.</p>
+        <p>A cookie is a small text file downloaded to your browser in order to store data to streamline your browsing experience and ensure the correct operation of the interactive features of the page.</p>
+        
+        <h3>Types of cookies we use</h3>
+        <ul>
+          <li><strong>Technical cookies (necessary):</strong> Allow the correct operation of the website, the dynamic loading of images from Odoo's database, the operation of the booking calendar, and the submission of contact inquiries.</li>
+          <li><strong>Personalization cookies:</strong> Remember your selected language preferences (Spanish or English) so you do not have to configure it on each visit.</li>
+          <li><strong>Cookies analysis:</strong> Allow us to obtain anonymous visit statistics to fix speed and usability errors.</li>
+        </ul>
+
+        <h3>How to disable cookies</h3>
+        <p>You can deactivate, block, or delete cookies installed on your computer at any time by configuring your web browser options. Please note that if you disable necessary technical cookies, some interactive features (such as the calendar or the booking form) may stop working correctly.</p>
+
+        <hr>
+
+        <h2>2. Privacy Policy</h2>
+        <p>In accordance with the General Data Protection Regulation (GDPR) and Organic Law 3/2018 (LOPDGDD), we inform you that the personal data you provide us through our booking or contact form will be processed by <strong>Rural Factory, S.L.</strong> as Data Controller.</p>
+        <p>The purpose of processing is to manage your booking request, answer your doubts, and inform you about the availability of the accommodation. Your data will not be transferred to third parties except under legal obligation. You can exercise your rights of access, rectification, erasure, and objection by writing to our contact email: <strong>info@cortijolagunachico.com</strong>.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <p style="margin-bottom: 0.5rem;">Rural Factory, S.L. - NIF: B93284974 - Calle Azucarera 20, 29740 Torre del Mar</p>
+      <p style="margin: 0;">© 2026 Cortijo Laguna Chico. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // --- LANGUAGE SWITCHING ---
+    const btnEs = document.querySelector('[data-lang="es"]');
+    const btnEn = document.querySelector('[data-lang="en"]');
+    const contentEs = document.getElementById('content-es');
+    const contentEn = document.getElementById('content-en');
+    const btnBackText = document.getElementById('btnBackText');
+    const btnBack = document.getElementById('btnBack');
+
+    // Get URL param or localStorage language preference
+    let activeLang = localStorage.getItem('cortijo_lang') || 'es';
+    
+    const setLanguage = (lang) => {
+      activeLang = lang;
+      localStorage.setItem('cortijo_lang', lang);
+      
+      if (lang === 'es') {
+        btnEs.classList.add('active');
+        btnEn.classList.remove('active');
+        contentEs.style.display = 'block';
+        contentEn.style.display = 'none';
+        btnBackText.textContent = 'Volver';
+        btnBack.href = 'index.html';
+      } else {
+        btnEs.classList.remove('active');
+        btnEn.classList.add('active');
+        contentEs.style.display = 'none';
+        contentEn.style.display = 'block';
+        btnBackText.textContent = 'Back';
+        btnBack.href = 'index.html?lang=en';
+      }
+    };
+
+    btnEs.addEventListener('click', () => setLanguage('es'));
+    btnEn.addEventListener('click', () => setLanguage('en'));
+
+    // Initialize Language
+    setLanguage(activeLang);
+
+    // Dynamic Odoo Staging Image Fix
+    if (window.location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(window.location.hostname) || window.location.hostname.includes('github.io')) {
+      const logo = document.querySelector('.logo-img');
+      if (logo && logo.getAttribute('src').startsWith('/web/image/')) {
+        logo.src = 'https://www.cortijolagunachico.com' + logo.getAttribute('src');
+      }
+    }
+  </script>
+</body>
+</html>
