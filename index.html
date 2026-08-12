@@ -332,7 +332,7 @@
 
     @keyframes heroZoomOut {
       from {
-        transform: scale(1.25);
+        transform: scale(1.5);
       }
       to {
         transform: scale(1.0);
@@ -1865,48 +1865,48 @@
 
     .cortijo-cal-widget .month-header h3 {
       font-family: var(--font-serif);
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--primary);
       font-weight: 700;
       margin: 0;
-      padding: 0 40px;
+      padding: 0;
       text-align: center;
     }
 
     .cortijo-cal-widget .nav-btn {
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border);
-      color: var(--primary);
-      width: 32px;
-      height: 32px;
+      background-color: var(--accent); /* Naranja/terracota */
+      border: none;
+      color: var(--bg-white);
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       transition: var(--transition);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
       z-index: 10;
     }
 
     .cortijo-cal-widget .nav-btn:hover {
-      background-color: var(--primary);
+      background-color: var(--primary); /* Hover verde oscuro */
       color: var(--bg-white);
-      border-color: var(--primary);
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
     .cortijo-cal-widget .month-header .nav-btn-prev {
       position: absolute;
       left: 0;
-      top: 30%;
+      top: 50%;
       transform: translateY(-50%);
     }
 
     .cortijo-cal-widget .month-header .nav-btn-next {
       position: absolute;
       right: 0;
-      top: 30%;
+      top: 50%;
       transform: translateY(-50%);
     }
 
@@ -1923,6 +1923,32 @@
     .cortijo-cal-widget .month-card:nth-child(n+4) .nav-btn-prev,
     .cortijo-cal-widget .month-card:nth-child(n+4) .nav-btn-next { display: none; }
 
+    /* Desktop navigation placement: Outside the month cards, just above them */
+    @media (min-width: 1025px) {
+      .cortijo-cal-widget .months-grid {
+        position: relative !important;
+        margin-top: 3.5rem !important; /* Space above grid for the buttons */
+      }
+      .cortijo-cal-widget .month-card {
+        position: static !important;
+      }
+      .cortijo-cal-widget .month-header {
+        position: static !important;
+      }
+      .cortijo-cal-widget .month-header .nav-btn-prev {
+        position: absolute !important;
+        left: 0 !important;
+        top: -3.5rem !important; /* Align just above the grid on the left */
+        transform: none !important;
+      }
+      .cortijo-cal-widget .month-header .nav-btn-next {
+        position: absolute !important;
+        right: 0 !important;
+        top: -3.5rem !important; /* Align just above the grid on the right */
+        transform: none !important;
+      }
+    }
+
     /* --- RESPONSIVE DESIGN --- */
 
     @media (max-width: 1024px) {
@@ -1934,7 +1960,7 @@
       .cortijo-cal-widget .sidebar-photo {
         height: 150px;
         padding: 1.5rem;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('/web/image/12932/Roberto%20%26%20Constanza-764.jpg') !important;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('/web/image/12071/Entrada%20exterior.jpg') !important;
       }
 
       .cortijo-cal-widget .sidebar-footer {
@@ -2389,7 +2415,7 @@
           <div class="feature-card">
             <div class="feature-icon-box"><i class="fa-solid fa-bath"></i></div>
             <h4 data-translate="featureBanosTitle">Baños Privados</h4>
-            <p data-translate="featureBanosDesc">8 baños en total (6 en suite en las habitaciones, 2 compartidos) y 1 aseo exterior cerca de la piscina.</p>
+            <p data-translate="featureBanosDesc">8 baños en total (6 en suite en las habitaciones, 2 compartidos) y 1 aseo exterior en el jardín.</p>
           </div>
           <!-- Card 3 -->
           <div class="feature-card">
@@ -2413,7 +2439,7 @@
           <div class="feature-card">
             <div class="feature-icon-box"><i class="fa-solid fa-kitchen-set"></i></div>
             <h4 data-translate="featureCocinaTitle">Cocina con Comedor</h4>
-            <p data-translate="featureCocinaDesc">Cocina de estilo profesional totalmente equipada, conectada a un comedor con chimenea para disfrutar de largas sobremesas.</p>
+            <p data-translate="featureCocinaDesc">Cocina equipada, conectada a un comedor interior con chimenea y a un comedor exterior.</p>
           </div>
           <!-- Card 7 -->
           <div class="feature-card">
@@ -2431,7 +2457,7 @@
           <div class="feature-card">
             <div class="feature-icon-box"><i class="fa-solid fa-fire"></i></div>
             <h4 data-translate="featureBarbacoaTitle">Barbacoa en el Jardín</h4>
-            <p data-translate="featureBarbacoaDesc">Zona de barbacoa equipada al aire libre para disfrutar de deliciosas comidas en el jardín.</p>
+            <p data-translate="featureBarbacoaDesc">Zona de barbacoa equipada al aire libre para disfrutar de comidas con la gente que más te importa.</p>
           </div>
         </div>
       </div>
@@ -2728,7 +2754,7 @@
           <p data-translate="room11Desc" class="room-desc">Un espacio de reunión amplio y confortable, para disfrutar con todo el grupo.</p>
         </div>
 
-        <!-- Room 12 (Entradas y Pasillos) -->
+        <!-- Room 12 (Zonas Comunes) -->
         <div class="feature-card room-card" data-room-type="common">
           <div class="room-slider">
             <div class="room-slider-slides">
@@ -2738,6 +2764,11 @@
               <img src="/web/image/12104/Hall%20piscina.jpg" class="room-slide" alt="Hall Piscina">
               <img src="/web/image/12103/Pasilla%20Playa.jpg" class="room-slide" alt="Pasillo Playa">
               <img src="/web/image/12084/Escalera%20arriba.jpg" class="room-slide" alt="Escalera Arriba">
+              <img src="/web/image/12083/" class="room-slide" alt="Zonas Comunes 7">
+              <img src="/web/image/12078/" class="room-slide" alt="Zonas Comunes 8">
+              <img src="/web/image/12102/" class="room-slide" alt="Zonas Comunes 9">
+              <img src="/web/image/12061/" class="room-slide" alt="Zonas Comunes 10">
+              <img src="/web/image/12931/Roberto%20%26%20Constanza-285.jpg" class="room-slide" alt="Zonas Comunes 11">
             </div>
             <span class="room-slider-nav prev" aria-label="Previous photo" role="button">&#10094;</span>
             <span class="room-slider-nav next" aria-label="Next photo" role="button">&#10095;</span>
@@ -2748,9 +2779,14 @@
               <span class="dot"></span>
               <span class="dot"></span>
               <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
             </div>
           </div>
-          <h4 data-translate="room12Title">Entradas, Pasillos y Exteriores</h4>
+          <h4 data-translate="room12Title">Zonas Comunes</h4>
           <p class="room-specs">
             <span><i class="fa-solid fa-door-open"></i> <span data-translate="specPassages">Zonas de Paso</span></span>
             <span><i class="fa-solid fa-tree"></i> <span data-translate="specExteriors">Jardines y Patios</span></span>
@@ -2788,7 +2824,7 @@
         
         <div class="events-collage">
           <img src="/web/image/12936/Roberto%20%26%20Constanza-579.jpg" alt="Evento 1" class="collage-img">
-          <img src="/web/image/12935/Roberto%20%26%20Constanza-383.jpg" alt="Evento 2" class="collage-img">
+          <img src="/web/image/12932/Roberto%20%26%20Constanza-764.jpg" alt="Evento 2" class="collage-img">
           <img src="/web/image/12934/Roberto%20%26%20Constanza-291.jpg" alt="Evento 3" class="collage-img">
           <img src="/web/image/12933/Roberto%20%26%20Constanza-533.jpg" alt="Evento 4" class="collage-img">
         </div>
@@ -3070,6 +3106,25 @@
             <li><a href="https://cortijolagunachico.com/politica-de-cookies" target="_blank" data-translate="privacyPolicy">Política de Privacidad</a></li>
           </ul>
         </div>
+        <!-- Logos de Colaboradores / Certificaciones -->
+        <div class="footer-logos" style="display: flex; justify-content: space-around; align-items: center; gap: 4rem; flex-wrap: wrap; margin-top: 2rem; padding: 3rem 0; border-top: 1px solid rgba(255, 255, 255, 0.15); border-bottom: 1px solid rgba(255, 255, 255, 0.15); width: 100%;">
+          <!-- Junta de Andalucia -->
+          <div class="footer-logo-item" style="height: 75px; display: flex; align-items: center; justify-content: center; flex: 1 1 200px;">
+            <img src="/web/image/12964/" alt="Junta de Andalucía" style="max-height: 100%; max-width: 100%; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.8; transition: all 0.3s;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.05)'" onmouseout="this.style.opacity=0.8; this.style.transform='scale(1)'">
+          </div>
+          <!-- Mangoa -->
+          <a href="http://lagunachico.com" target="_blank" class="footer-logo-item" style="height: 75px; display: flex; align-items: center; justify-content: center; flex: 1 1 200px;">
+            <img src="/web/image/12966/" alt="Mangoa Catering" style="max-height: 100%; max-width: 100%; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.8; transition: all 0.3s;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.05)'" onmouseout="this.style.opacity=0.8; this.style.transform='scale(1)'">
+          </a>
+          <!-- Cortijo -->
+          <div class="footer-logo-item" style="height: 75px; display: flex; align-items: center; justify-content: center; flex: 1 1 200px;">
+            <img src="/web/image/12140/" alt="Cortijo Laguna Chico" style="max-height: 100%; max-width: 100%; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.8; transition: all 0.3s;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.05)'" onmouseout="this.style.opacity=0.8; this.style.transform='scale(1)'">
+          </div>
+          <!-- Escapada Rural -->
+          <a href="https://www.escapadarural.com/casa-rural/malaga/cortijo-chico?utm_source=google&utm_medium=display&utm_campaign=ES_Pmax&gad_source=1&gad_campaignid=20948807243&gbraid=0AAAAAD4uLT6ckWUKl3f0hqwiiaVX6JZLb&gclid=Cj0KCQjwkOvTBhDgARIsAKUNyRtnucRhPe1Z411u0CGzLgYfGeYz2q2pMnuPfg5_r9GjzodD9Ug_CJkaAjEFEALw_wcB" target="_blank" class="footer-logo-item" style="height: 75px; display: flex; align-items: center; justify-content: center; flex: 1 1 200px;">
+            <img src="/web/image/12965/" alt="Escapada Rural" style="max-height: 100%; max-width: 100%; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.8; transition: all 0.3s;" onmouseover="this.style.opacity=1; this.style.transform='scale(1.05)'" onmouseout="this.style.opacity=0.8; this.style.transform='scale(1)'">
+          </a>
+        </div>
         <div class="footer-bottom">
           <span data-translate="legalCompany">Rural Factory, S.L. - NIF: B93284974 - Calle Azucarera 20, 29740 Torre del Mar</span>
           <span>© 2026 Cortijo Laguna Chico. <span data-translate="rightsReserved">Todos los derechos reservados. Diseñado para Odoo.</span></span>
@@ -3099,6 +3154,46 @@
   </div>
 
   <script>
+    // --- LOCAL DEVELOPMENT IMAGE RESOLUTION FIX ---
+    if (window.location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+      const prefixOdooImages = (node) => {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          if (node.tagName === 'IMG') {
+            const src = node.getAttribute('src');
+            if (src && src.startsWith('/web/image/') && !src.startsWith('http')) {
+              node.src = 'https://rfactory.odoo.com' + src;
+            }
+          }
+          node.querySelectorAll('img').forEach(img => {
+            const src = img.getAttribute('src');
+            if (src && src.startsWith('/web/image/') && !src.startsWith('http')) {
+              img.src = 'https://rfactory.odoo.com' + src;
+            }
+          });
+          if (node.style && node.style.backgroundImage && node.style.backgroundImage.includes('url("/web/image/')) {
+            node.style.backgroundImage = node.style.backgroundImage.replace('url("/web/image/', 'url("https://rfactory.odoo.com/web/image/');
+          }
+          node.querySelectorAll('[style*="background"]').forEach(el => {
+            const style = el.getAttribute('style');
+            if (style && style.includes("url('/web/image/")) {
+              el.setAttribute('style', style.replace(/url\('\/web/g, "url('https://rfactory.odoo.com/web"));
+            }
+          });
+        }
+      };
+      document.addEventListener('DOMContentLoaded', () => {
+        prefixOdooImages(document.body);
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+              prefixOdooImages(node);
+            });
+          });
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      });
+    }
+
     // --- TRANSLATIONS DATA ---
         const translations = {
       es: {
@@ -3122,7 +3217,7 @@
         featurePlazasTitle: "18 Plazas",
         featurePlazasDesc: "9 amplias habitaciones: 6 dobles con camas individuales y 3 con camas de matrimonio. Adaptables a vuestras necesidades.",
         featureBanosTitle: "Baños Privados",
-        featureBanosDesc: "8 baños en total (7 en suite en las habitaciones, 1 compartido) y 1 aseo exterior cerca de la piscina.",
+        featureBanosDesc: "8 baños en total (7 en suite en las habitaciones, 1 compartido) y 1 aseo exterior en el jardín.",
         featurePlayaTitle: "Acceso Directo al Mar",
         featurePlayaDesc: "Un paso fuera del jardín y estarás tocando la arena de la playa. Privacidad y naturaleza en un solo lugar.",
         featurePiscinaTitle: "Piscina Privada",
@@ -3130,13 +3225,13 @@
         featureSalonTitle: "Gran Salón de 65m²",
         featureSalonDesc: "Un espacio de reunión amplio y confortable, para disfrutar con todo el grupo.",
         featureCocinaTitle: "Cocina con Comedor",
-        featureCocinaDesc: "Cocina equipada conectada al comedor con chimenea para disfrutar de largas sobremesas.",
+        featureCocinaDesc: "Cocina equipada, conectada a un comedor interior con chimenea y a un comedor exterior.",
         featureWifiTitle: "Fibra 1 Gbps",
         featureWifiDesc: "Conexión a internet de alta velocidad (1 Gbps) en todos las habitaciones, por si necesitas teletrabajar o compartir tus momentos.",
         featureJardinesTitle: "Jardines Exóticos",
         featureJardinesDesc: "Amplias zonas verdes con vegetación mediterránea, palmeras y rincones de sombra ideales para la lectura.",
         featureBarbacoaTitle: "Barbacoa en el Jardín",
-        featureBarbacoaDesc: "Zona de barbacoa equipada al aire libre para disfrutar de deliciosas comidas en el jardín.",
+        featureBarbacoaDesc: "Zona de barbacoa equipada al aire libre para disfrutar de comidas con la gente que más te importa.",
         
         roomsTitle: "Nuestros Dormitorios",
         roomsSubtitle: "Espacios diseñados para tu descanso y confort",
@@ -3253,7 +3348,7 @@
         specEquip: "Totalmente Equipada",
         specSalon: "65 m² de Superficie",
         specTV: "Televisión & Sofás",
-        room12Title: "Entradas, Pasillos y Exteriores",
+        room12Title: "Zonas Comunes",
         room12Desc: "Amplios espacios al aire libre, porches, recibidor y escaleras que conectan la casa con la piscina y la playa.",
         specPassages: "Zonas de Paso",
         specExteriors: "Jardines y Patios",
@@ -3284,7 +3379,7 @@
         featurePlazasTitle: "Sleeps 18",
         featurePlazasDesc: "9 spacious bedrooms: 6 twins with single beds and 3 double bedrooms. Adaptable to your group layout.",
         featureBanosTitle: "Private Bathrooms",
-        featureBanosDesc: "8 bathrooms total (7 en-suite inside bedrooms, 1 shared) and 1 exterior toilet near the pool.",
+        featureBanosDesc: "8 bathrooms total (7 en-suite inside bedrooms, 1 shared) and 1 exterior toilet in the garden.",
         featurePlayaTitle: "Direct Beach Access",
         featurePlayaDesc: "Step outside the private garden and you are directly touching the sand. Privacy and nature in one place.",
         featurePiscinaTitle: "Private Pool",
@@ -3292,13 +3387,13 @@
         featureSalonTitle: "Large 65m² Lounge",
         featureSalonDesc: "A spacious and comfortable meeting space with a TV and large sofas for the entire group.",
         featureCocinaTitle: "Kitchen & Dining",
-        featureCocinaDesc: "Equipped kitchen connected to the dining room with a fireplace to enjoy long dinners.",
+        featureCocinaDesc: "Equipped kitchen, connected to an indoor dining room with fireplace and an outdoor dining area.",
         featureWifiTitle: "1 Gbps Fiber",
         featureWifiDesc: "High-speed internet connection throughout the estate, in case you need to work remotely or share memories.",
         featureJardinesTitle: "Exotic Gardens",
         featureJardinesDesc: "Spacious green areas with Mediterranean plants, palm trees, and shady spots ideal for reading.",
         featureBarbacoaTitle: "Garden Barbecue",
-        featureBarbacoaDesc: "Equipped outdoor BBQ area to enjoy delicious meals in the garden with ocean views.",
+        featureBarbacoaDesc: "Equipped outdoor BBQ area to enjoy meals with the people who matter most to you.",
         
         roomsTitle: "Our Bedrooms",
         roomsSubtitle: "Spaces designed for your rest and comfort",
@@ -3415,7 +3510,7 @@
         specEquip: "Fully Equipped",
         specSalon: "65 m² Surface Area",
         specTV: "TV & Sofas",
-        room12Title: "Entrances, Hallways & Outdoors",
+        room12Title: "Common Areas",
         room12Desc: "Spacious outdoor areas, porches, hall, and stairs connecting the villa with the pool and beach.",
         specPassages: "Transit Areas",
         specExteriors: "Gardens & Patios",
