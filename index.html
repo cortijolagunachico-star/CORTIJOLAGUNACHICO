@@ -3155,7 +3155,7 @@
 
   <script>
     // --- LOCAL DEVELOPMENT IMAGE RESOLUTION FIX ---
-    if (window.location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+    if (window.location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(window.location.hostname) || window.location.hostname.includes('github.io')) {
       const domains = [
         'https://rfactory.odoo.com',
         'https://cortijolagunachico.com',
