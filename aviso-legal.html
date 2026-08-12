@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviso Legal · Cortijo Laguna Chico</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-primary: hsl(38, 30%, 98%);
+      --bg-white: #ffffff;
+      --text-dark: hsl(135, 6%, 16%);
+      --text-muted: hsl(135, 4%, 40%);
+      --primary: hsl(133, 13%, 28%);
+      --accent: hsl(20, 52%, 55%);
+      --border: hsl(38, 15%, 85%);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text-dark);
+      background-color: var(--bg-primary);
+      line-height: 1.7;
+      padding: 0;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .btn-back:hover {
+      background-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .lang-btn.active {
+      background-color: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* Content Layout */
+    .content-wrapper {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .card {
+      background-color: var(--bg-white);
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      padding: 3rem;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      color: var(--primary);
+      font-size: 2.25rem;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--bg-primary);
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: var(--text-dark);
+    }
+
+    ul {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--primary);
+    }
+
+    /* Footer Styles */
+    .footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      background-color: var(--bg-white);
+      margin-top: 5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header {
+        padding: 1rem;
+      }
+      .content-wrapper {
+        margin: 1.5rem auto;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo-link">
+        <img src="/web/image/12140/cortijo.png" alt="Cortijo Laguna Chico" class="logo-img">
+      </a>
+      
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        
+        <a href="index.html" class="btn-back" id="btnBack">
+          <i class="fa-solid fa-arrow-left"></i> <span id="btnBackText">Volver</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+    <div class="card">
+      
+      <!-- SPANISH CONTENT -->
+      <div id="content-es">
+        <h1>Aviso Legal</h1>
+        
+        <h2>1. Datos Identificativos</h2>
+        <p>En cumplimiento con el deber de información recogido en artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSICE), a continuación se reflejan los siguientes datos:</p>
+        <ul>
+          <li><strong>Denominación Social:</strong> Rural Factory, S.L.</li>
+          <li><strong>NIF:</strong> B93284974</li>
+          <li><strong>Domicilio Social:</strong> Calle Azucarera 20, 29740 Torre del Mar (Málaga), España</li>
+          <li><strong>Correo electrónico de contacto:</strong> info@cortijolagunachico.com</li>
+          <li><strong>Inscripción Registral:</strong> Inscrita en el Registro Mercantil de Málaga, Tomo 5214, Libro 4121, Folio 88, Hoja MA-120931 (los datos registrales indicados corresponden a la constitución de la sociedad).</li>
+          <li><strong>Actividad principal:</strong> Gestión de alojamientos turísticos y organización de eventos.</li>
+        </ul>
+
+        <h2>2. Propiedad Intelectual y Uso de Contenidos</h2>
+        <p>El diseño de este sitio web, sus códigos fuente, logotipos, imágenes, textos y demás elementos de diseño son titularidad exclusiva de <strong>Rural Factory, S.L.</strong> o de sus respectivos licenciantes, estando protegidos por los correspondientes derechos de propiedad intelectual e industrial.</p>
+        <p>Queda prohibida la reproducción, distribución, comunicación pública o transformación de cualquier contenido de esta web sin la autorización expresa y por escrito de su titular legal.</p>
+
+        <h2>3. Exclusión de Responsabilidad</h2>
+        <p>Rural Factory, S.L. no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos de la web, falta de disponibilidad del portal, o la transmisión de virus o programas maliciosos en los contenidos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.</p>
+
+        <h2>4. Legislación Aplicable y Jurisdicción</h2>
+        <p>Para la resolución de todas las controversias o cuestiones relacionadas con el presente sitio web o de las actividades en él desarrolladas, será de aplicación la legislación española, a la que se someten expresamente las partes, siendo competentes para la resolución de todos los conflictos derivados o relacionados con su uso los Juzgados y Tribunales de Vélez-Málaga (España).</p>
+      </div>
+
+      <!-- ENGLISH CONTENT -->
+      <div id="content-en" style="display: none;">
+        <h1>Legal Notice</h1>
+        
+        <h2>1. Identifying Data</h2>
+        <p>In compliance with the information duty contained in Article 10 of Law 34/2002, of July 11, on Information Society Services and Electronic Commerce (LSSICE), the following data is reflected below:</p>
+        <ul>
+          <li><strong>Company Name:</strong> Rural Factory, S.L.</li>
+          <li><strong>NIF:</strong> B93284974</li>
+          <li><strong>Registered Office:</strong> Calle Azucarera 20, 29740 Torre del Mar (Malaga), Spain</li>
+          <li><strong>Contact Email:</strong> info@cortijolagunachico.com</li>
+          <li><strong>Registrar Registry:</strong> Registered in the Mercantile Registry of Malaga, Volume 5214, Book 4121, Page 88, Sheet MA-120931.</li>
+          <li><strong>Main Activity:</strong> Management of tourist accommodations and event organization.</li>
+        </ul>
+
+        <h2>2. Intellectual Property and Use of Contents</h2>
+        <p>The design of this website, its source codes, logos, images, text, and other design elements are the exclusive property of <strong>Rural Factory, S.L.</strong> or its respective licensors, being protected by the corresponding intellectual and industrial property rights.</p>
+        <p>Any reproduction, distribution, public communication, or transformation of any content on this website is prohibited without the express written authorization of its legal owner.</p>
+
+        <h2>3. Exclusion of Liability</h2>
+        <p>Rural Factory, S.L. is not liable under any circumstances for damages of any nature that may occur, including but not limited to: errors or omissions in the contents of the website, lack of availability of the portal, or the transmission of viruses or malicious programs in the contents, despite having adopted all necessary technological measures to prevent it.</p>
+
+        <h2>4. Applicable Law and Jurisdiction</h2>
+        <p>For the resolution of all disputes or questions related to this website or the activities carried out on it, Spanish legislation will apply, to which the parties expressly submit. The Courts and Tribunals of Velez-Malaga (Spain) shall have jurisdiction for the resolution of all conflicts arising from or related to its use.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <p style="margin-bottom: 0.5rem;">Rural Factory, S.L. - NIF: B93284974 - Calle Azucarera 20, 29740 Torre del Mar</p>
+      <p style="margin: 0;">© 2026 Cortijo Laguna Chico. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // --- LANGUAGE SWITCHING ---
+    const btnEs = document.querySelector('[data-lang="es"]');
+    const btnEn = document.querySelector('[data-lang="en"]');
+    const contentEs = document.getElementById('content-es');
+    const contentEn = document.getElementById('content-en');
+    const btnBackText = document.getElementById('btnBackText');
+    const btnBack = document.getElementById('btnBack');
+
+    let activeLang = localStorage.getItem('cortijo_lang') || 'es';
+    
+    const setLanguage = (lang) => {
+      activeLang = lang;
+      localStorage.setItem('cortijo_lang', lang);
+      
+      if (lang === 'es') {
+        btnEs.classList.add('active');
+        btnEn.classList.remove('active');
+        contentEs.style.display = 'block';
+        contentEn.style.display = 'none';
+        btnBackText.textContent = 'Volver';
+        btnBack.href = 'index.html';
+      } else {
+        btnEs.classList.remove('active');
+        btnEn.classList.add('active');
+        contentEs.style.display = 'none';
+        contentEn.style.display = 'block';
+        btnBackText.textContent = 'Back';
+        btnBack.href = 'index.html?lang=en';
+      }
+    };
+
+    btnEs.addEventListener('click', () => setLanguage('es'));
+    btnEn.addEventListener('click', () => setLanguage('en'));
+
+    setLanguage(activeLang);
+
+    // Dynamic Odoo Staging Image Fix
+    if (window.location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(window.location.hostname) || window.location.hostname.includes('github.io')) {
+      const logo = document.querySelector('.logo-img');
+      if (logo && logo.getAttribute('src').startsWith('/web/image/')) {
+        logo.src = 'https://www.cortijolagunachico.com' + logo.getAttribute('src');
+      }
+    }
+  </script>
+</body>
+</html>
