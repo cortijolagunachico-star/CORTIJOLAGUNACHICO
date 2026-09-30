@@ -4446,7 +4446,7 @@
         }
       }
 
-      // Fetch calendar with caching and retries
+      // Fetch calendar with caching and parallel racing
       const CALENDAR_CACHE_KEY = "cortijo_calendar_cache";
       const CALENDAR_CACHE_TTL = 2 * 60 * 60 * 1000; // 2 hours in ms
 
@@ -4485,47 +4485,41 @@
         }
       }
 
+      // Race all sources in PARALLEL — first valid response wins
       async function tryFetchCalendar() {
         const icalFeedUrl = "https://calendar.google.com/calendar/ical/sanchezmoyano.com_or21ge4dr8jtf6nqh8fr2pikfg%40group.calendar.google.com/private-0bcb4d7b1c3599cd1fc656c9e3532843/basic.ics";
 
-        // Source 1: Google Apps Script
-        if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL.trim() !== "") {
-          try {
-            const response = await fetchWithTimeout(GOOGLE_SCRIPT_URL, 15000);
+        const sources = [
+          // Source 1: Google Apps Script
+          (async () => {
+            const response = await fetchWithTimeout(GOOGLE_SCRIPT_URL, 12000);
             if (!response.ok) throw new Error("HTTP " + response.status);
             const icsText = await response.text();
             if (!icsText.includes("BEGIN:VCALENDAR")) throw new Error("Invalid ICS");
             return icsText;
-          } catch (e) {
-            console.warn("Apps Script failed:", e.message);
-          }
-        }
+          })(),
+          // Source 2: allorigins proxy
+          (async () => {
+            const url = "https://api.allorigins.win/get?url=" + encodeURIComponent(icalFeedUrl);
+            const response = await fetchWithTimeout(url, 12000);
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            const data = await response.json();
+            if (!data.contents || !data.contents.includes("BEGIN:VCALENDAR")) throw new Error("Invalid ICS");
+            return data.contents;
+          })(),
+          // Source 3: corsproxy.io
+          (async () => {
+            const url = "https://corsproxy.io/?" + encodeURIComponent(icalFeedUrl);
+            const response = await fetchWithTimeout(url, 12000);
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            const icsText = await response.text();
+            if (!icsText.includes("BEGIN:VCALENDAR")) throw new Error("Invalid ICS");
+            return icsText;
+          })()
+        ];
 
-        // Source 2: allorigins proxy
-        try {
-          const url = "https://api.allorigins.win/get?url=" + encodeURIComponent(icalFeedUrl);
-          const response = await fetchWithTimeout(url, 10000);
-          if (!response.ok) throw new Error("HTTP " + response.status);
-          const data = await response.json();
-          if (!data.contents || !data.contents.includes("BEGIN:VCALENDAR")) throw new Error("Invalid ICS");
-          return data.contents;
-        } catch (e) {
-          console.warn("allorigins proxy failed:", e.message);
-        }
-
-        // Source 3: corsproxy.io
-        try {
-          const url = "https://corsproxy.io/?" + encodeURIComponent(icalFeedUrl);
-          const response = await fetchWithTimeout(url, 10000);
-          if (!response.ok) throw new Error("HTTP " + response.status);
-          const icsText = await response.text();
-          if (!icsText.includes("BEGIN:VCALENDAR")) throw new Error("Invalid ICS");
-          return icsText;
-        } catch (e) {
-          console.warn("corsproxy.io failed:", e.message);
-        }
-
-        throw new Error("All sources failed");
+        // Promise.any returns the first fulfilled promise
+        return Promise.any(sources);
       }
 
       async function loadCalendar() {
@@ -4549,14 +4543,14 @@
           return;
         }
 
-        // 2. No cache: fetch with retries
-        const maxRetries = 3;
+        // 2. No cache: fetch with 2 retries (all sources race in parallel each time)
+        const maxRetries = 2;
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
           try {
             if (attempt > 1 && calendarLoading) {
               calendarLoading.innerHTML = (currentLang === "es" 
-                ? "Reintentando cargar disponibilidad... (intento " + attempt + "/" + maxRetries + ")" 
-                : "Retrying availability load... (attempt " + attempt + "/" + maxRetries + ")");
+                ? "Reintentando cargar disponibilidad..." 
+                : "Retrying availability load...");
             }
             const icsText = await tryFetchCalendar();
             saveCalendarCache(icsText);
@@ -4566,7 +4560,7 @@
           } catch (e) {
             console.warn("Calendar load attempt " + attempt + " failed:", e.message);
             if (attempt < maxRetries) {
-              await new Promise(r => setTimeout(r, 2000 * attempt));
+              await new Promise(r => setTimeout(r, 3000));
             }
           }
         }
