@@ -324,19 +324,41 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.35)), url('/web/image/12068/Casa%20desde%20Piscina.jpg') no-repeat center center/cover;
+      background: #000000;
       z-index: 1;
-      animation: heroZoomOut 12s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-      transform-origin: center center;
     }
 
-    @keyframes heroZoomOut {
-      from {
-        transform: scale(1.5);
-      }
-      to {
-        transform: scale(1.0);
-      }
+    .cortijo-website .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 1;
+    }
+    .cortijo-website .video-background::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.35));
+      z-index: 2;
+    }
+    .cortijo-website #youtube-player {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw; /* 16:9 */
+      min-height: 100vh;
+      min-width: 177.77vh; /* 16:9 */
+      transform: translate(-50%, -50%);
+      z-index: 1;
     }
 
     .cortijo-website .hero-content {
@@ -2484,6 +2506,9 @@
         <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="hero-bg"></div>
+      <div class="video-background">
+        <div id="youtube-player"></div>
+      </div>
       <div class="hero-content">
         <span class="hero-badge" data-translate="heroBadge">VTAR/MA/00367</span>
         <h1 class="hero-title" data-translate="heroTitle">Cortijo Laguna Chico</h1>
@@ -4803,5 +4828,66 @@
         window.addEventListener("load", fixPaths);
       }
     })();
+  </script>
+  <!-- YouTube Background Video API integration -->
+  <script>
+    (function() {
+      // 1. Load the YouTube IFrame Player API asynchronously
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+      
+      // The API calls this global function once it's fully loaded.
+      window.onYouTubeIframeAPIReady = function() {
+        var playerVars = {
+          'autoplay': 1,
+          'controls': 0,
+          'rel': 0,
+          'showinfo': 0,
+          'iv_load_policy': 3,
+          'showsearch': 0,
+          'autohide': 1,
+          'mute': 1,
+          'start': 5,
+          'end': 60,
+          'wmode': 'opaque'
+        };
+        
+        if (window.location.protocol.startsWith('http')) {
+          playerVars.origin = window.location.origin;
+        }
+
+        player = new YT.Player('youtube-player', {
+          videoId: 'lyItG8B3GH0',
+          playerVars: playerVars,
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      };
+
+      function onPlayerReady(event) {
+        event.target.mute();
+        event.target.playVideo();
+      }
+
+      function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PLAYING) {
+          const container = document.querySelector('.video-background');
+          if (container) {
+            container.classList.add('ready');
+          }
+        }
+        
+        if (event.data === YT.PlayerState.ENDED) {
+          player.pauseVideo();
+        }
+      }
+    })();
+  </script>
 </body>
 </html>
