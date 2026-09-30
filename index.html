@@ -3079,12 +3079,11 @@
           <h3 data-translate="contactTitle" style="margin-bottom: 0.5rem;">Reserva tu Estancia</h3>
           <p data-translate="contactSubtitle" style="margin-bottom: 2rem;">Envíanos tu consulta y te responderemos en menos de 24 horas</p>
           
-          <form id="contactForm" action="https://formsubmit.co/info@cortijolagunachico.com" method="POST">
-            <!-- Configuración de FormSubmit -->
-            <input type="hidden" name="_subject" value="Nueva Solicitud de Reserva - Cortijo Laguna Chico">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://cortijolagunachico-star.github.io/CORTIJOLAGUNACHICO/?enviado=1">
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Configuración de Web3Forms -->
+            <input type="hidden" name="access_key" value="22fd71b8-8edc-48f0-a7e9-2eac519feaa9">
+            <input type="hidden" name="subject" value="Nueva Solicitud de Reserva - Cortijo Laguna Chico">
+            <input type="hidden" name="redirect" value="https://cortijolagunachico-star.github.io/CORTIJOLAGUNACHICO/?enviado=1">
 
             <div class="contact-form-grid">
               <div class="form-group">
