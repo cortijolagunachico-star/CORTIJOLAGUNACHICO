@@ -2430,18 +2430,27 @@
 
     /* --- ROOMS VIDEO SHOWCASE SECTION --- */
     .cortijo-website .rooms-video-section {
-      padding: 1rem 2rem 5rem 2rem;
+      padding: 2rem 0 5rem 0;
       background: var(--bg-primary);
+      width: 100%;
+      overflow: hidden;
+    }
+    .cortijo-website .rooms-video-section .section-inner {
+      padding: 0 2rem;
     }
     .cortijo-website .rooms-video-wrapper {
       position: relative;
-      max-width: 1100px;
-      margin: 0 auto;
-      border-radius: 24px;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      border-radius: 0;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
       background: #000000;
-      border: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      border-left: none;
+      border-right: none;
     }
     .cortijo-website .rooms-video-embed {
       position: relative;
@@ -2503,10 +2512,13 @@
     }
     @media (max-width: 768px) {
       .cortijo-website .rooms-video-section {
-        padding: 0.5rem 1rem 3.5rem 1rem;
+        padding: 1rem 0 3.5rem 0;
+      }
+      .cortijo-website .rooms-video-section .section-inner {
+        padding: 0 1rem;
       }
       .cortijo-website .rooms-video-wrapper {
-        border-radius: 16px;
+        border-radius: 0;
       }
       .cortijo-website .rooms-video-sound-toggle {
         bottom: 14px;
@@ -3049,30 +3061,30 @@
 
     <!-- Rooms Video Showcase Section -->
     <section class="section rooms-video-section reveal" id="video-habitaciones">
-      <div class="section-inner">
-        <div class="section-header" style="margin-bottom: 2rem;">
+      <div class="section-inner" style="margin-bottom: 2rem;">
+        <div class="section-header" style="margin-bottom: 0;">
           <span class="section-subtitle" data-translate="roomsVideoSubtitle">Vídeo de las instalaciones</span>
           <h2 class="section-title" data-translate="roomsVideoTitle">Recorrido por las Instalaciones</h2>
         </div>
-        <div class="rooms-video-wrapper">
-          <div class="rooms-video-embed">
-            <iframe id="rooms-youtube-player"
-              src="https://www.youtube-nocookie.com/embed/GQhpepduC_A?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=GQhpepduC_A&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3&amp;modestbranding=1&amp;disablekb=1&amp;playsinline=1&amp;enablejsapi=1"
-              title="Cortijo Laguna Chico - Recorrido por las Instalaciones"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen>
-            </iframe>
-            <!-- Click guard transparente para ocultar y bloquear cualquier botón de YouTube -->
-            <div class="rooms-video-click-guard"></div>
-          </div>
-          <!-- Botón flotante para activar o silenciar el sonido -->
-          <button class="rooms-video-sound-toggle" id="roomsSoundToggle" type="button" aria-label="Activar/Silenciar sonido">
-            <i class="fa-solid fa-volume-xmark" id="roomsSoundIcon"></i>
-            <span id="roomsSoundText" data-translate="roomsSoundUnmute">Activar sonido</span>
-          </button>
+      </div>
+      <div class="rooms-video-wrapper">
+        <div class="rooms-video-embed">
+          <iframe id="rooms-youtube-player"
+            src="https://www.youtube-nocookie.com/embed/GQhpepduC_A?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=GQhpepduC_A&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3&amp;modestbranding=1&amp;disablekb=1&amp;playsinline=1&amp;enablejsapi=1&amp;vq=hd1080"
+            title="Cortijo Laguna Chico - Recorrido por las Instalaciones"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <!-- Click guard transparente para ocultar y bloquear cualquier botón de YouTube -->
+          <div class="rooms-video-click-guard"></div>
         </div>
+        <!-- Botón flotante para activar o silenciar el sonido -->
+        <button class="rooms-video-sound-toggle" id="roomsSoundToggle" type="button" aria-label="Activar/Silenciar sonido">
+          <i class="fa-solid fa-volume-xmark" id="roomsSoundIcon"></i>
+          <span id="roomsSoundText" data-translate="roomsSoundUnmute">Activar sonido</span>
+        </button>
       </div>
     </section>
 
@@ -5088,9 +5100,20 @@
           }
         });
 
-        // Setup sound toggle for rooms video via safe postMessage
+        // Setup sound toggle & high quality for rooms video via safe postMessage
         var soundToggle = document.getElementById('roomsSoundToggle');
         var roomsIframe = document.getElementById('rooms-youtube-player');
+        if (roomsIframe) {
+          var sendHighQuality = function() {
+            try {
+              if (roomsIframe.contentWindow) {
+                roomsIframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'setPlaybackQuality', args: ['hd1080'] }), '*');
+              }
+            } catch(e) {}
+          };
+          roomsIframe.addEventListener('load', sendHighQuality);
+          setTimeout(sendHighQuality, 1500);
+        }
         if (soundToggle && roomsIframe) {
           var isRoomsMuted = true;
           soundToggle.addEventListener('click', function() {
@@ -5100,6 +5123,7 @@
               roomsIframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: command, args: [] }), '*');
               if (!isRoomsMuted) {
                 roomsIframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'setVolume', args: [85] }), '*');
+                roomsIframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'setPlaybackQuality', args: ['hd1080'] }), '*');
                 roomsIframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'playVideo', args: [] }), '*');
               }
             }
