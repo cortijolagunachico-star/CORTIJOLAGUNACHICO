@@ -33,7 +33,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Cortijo Laguna Chico - Alojamiento y Eventos en la Playa</title>
+  <title>Cortijo Laguna Chico. Un lugar donde crear recuerdos.</title>
   
   <!-- FontAwesome CDN for modern premium icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -2603,6 +2603,137 @@
       }
     }
     }
+  
+    /* --- ENHANCED CONTACT & FLOATING ACTION BUTTONS --- */
+    .cortijo-website .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .cortijo-website .btn-action.call-btn {
+      background-color: var(--primary) !important;
+      color: #ffffff !important;
+      border: 1px solid var(--primary) !important;
+    }
+    .cortijo-website .btn-action.call-btn:hover {
+      background-color: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .cortijo-website .btn-action.call-btn i {
+      color: #ffffff !important;
+    }
+    .cortijo-website .btn-action.vcard-btn {
+      background-color: #f7f5f0;
+      color: var(--text-dark);
+      border: 1px solid var(--border);
+    }
+    .cortijo-website .btn-action.vcard-btn:hover {
+      background-color: #ece8df;
+      border-color: var(--text-muted);
+    }
+
+    /* Floating Quick Contact Widget */
+    .cortijo-website .floating-contact-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+    .cortijo-website .floating-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .cortijo-website .floating-call-btn {
+      background: linear-gradient(135deg, hsl(133, 20%, 30%), hsl(133, 25%, 20%));
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .cortijo-website .floating-call-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 24px rgba(45, 49, 46, 0.35);
+    }
+    .cortijo-website .floating-wa-btn {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+    .cortijo-website .floating-wa-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.4);
+    }
+    @media (max-width: 600px) {
+      .cortijo-website .floating-contact-widget {
+        bottom: 16px;
+        right: 16px;
+        gap: 8px;
+      }
+      .cortijo-website .floating-btn {
+        padding: 9px 14px;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Hero Video Restart Button */
+    .cortijo-website .hero-video-restart-btn {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      z-index: 10;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(18, 24, 20, 0.65);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .cortijo-website .hero-video-restart-btn:hover {
+      background: rgba(18, 24, 20, 0.9);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    }
+    @media (max-width: 600px) {
+      .cortijo-website .hero-video-restart-btn {
+        bottom: 16px;
+        left: 16px;
+        padding: 7px 12px;
+        font-size: 0.75rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2647,6 +2778,11 @@
       <div class="video-background">
         <div id="youtube-player"></div>
       </div>
+      <!-- Botón para reiniciar el vídeo del fondo -->
+      <button class="hero-video-restart-btn" id="heroVideoRestartBtn" type="button" aria-label="Ver vídeo desde el principio" title="Ver vídeo desde el principio">
+        <i class="fa-solid fa-rotate-left"></i>
+        <span class="restart-label" data-translate="heroVideoRestart">Ver desde el principio</span>
+      </button>
       <div class="hero-content">
         <span class="hero-badge" data-translate="heroBadge">VTAR/MA/00367</span>
         <h1 class="hero-title" data-translate="heroTitle">Cortijo Laguna Chico</h1>
@@ -3355,18 +3491,20 @@
                 <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
                 <div class="info-details">
                   <h5 data-translate="phoneLabel">Teléfonos de contacto:</h5>
-                  <div class="contact-person" style="margin-bottom: 0.75rem;">
-                    <p style="font-weight: 600;">Santiago: 685 319 023</p>
-                    <div class="contact-actions" style="display: flex; gap: 0.5rem; margin-top: 0.35rem;">
-                      <a href="https://cortijolagunachico-star.github.io/CORTIJOLAGUNACHICO/santiago.vcf" target="_blank" class="btn-action vcard-btn" title="Guardar Contacto"><i class="fa-solid fa-address-card"></i> Guardar</a>
+                  <div class="contact-person" style="margin-bottom: 1.1rem;">
+                    <p style="font-weight: 600; font-size: 0.95rem;">Santiago: <a href="tel:+34685319023" style="color: inherit; text-decoration: none;">685 319 023</a></p>
+                    <div class="contact-actions" style="display: flex; gap: 0.5rem; margin-top: 0.4rem; flex-wrap: wrap;">
+                      <a href="tel:+34685319023" class="btn-action call-btn" title="Llamar a Santiago"><i class="fa-solid fa-phone"></i> Llamar</a>
                       <a href="https://wa.me/34685319023" target="_blank" class="btn-action whatsapp-btn" title="Enviar WhatsApp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                      <a href="https://cortijolagunachico-star.github.io/CORTIJOLAGUNACHICO/santiago.vcf" target="_blank" class="btn-action vcard-btn" title="Guardar Contacto"><i class="fa-solid fa-address-card"></i> Guardar</a>
                     </div>
                   </div>
-                  <div class="contact-person">
-                    <p style="font-weight: 600;">Antonio: 616 996 872</p>
-                    <div class="contact-actions" style="display: flex; gap: 0.5rem; margin-top: 0.35rem;">
-                      <a href="https://cortijolagunachico-star.github.io/CORTIJOLAGUNACHICO/antonio.vcf" target="_blank" class="btn-action vcard-btn" title="Guardar Contacto"><i class="fa-solid fa-address-card"></i> Guardar</a>
+                  <div class="contact-person" style="margin-bottom: 0.5rem;">
+                    <p style="font-weight: 600; font-size: 0.95rem;">Antonio: <a href="tel:+34616996872" style="color: inherit; text-decoration: none;">616 996 872</a></p>
+                    <div class="contact-actions" style="display: flex; gap: 0.5rem; margin-top: 0.4rem; flex-wrap: wrap;">
+                      <a href="tel:+34616996872" class="btn-action call-btn" title="Llamar a Antonio"><i class="fa-solid fa-phone"></i> Llamar</a>
                       <a href="https://wa.me/34616996872" target="_blank" class="btn-action whatsapp-btn" title="Enviar WhatsApp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                      <a href="https://cortijolagunachico-star.github.io/CORTIJOLAGUNACHICO/antonio.vcf" target="_blank" class="btn-action vcard-btn" title="Guardar Contacto"><i class="fa-solid fa-address-card"></i> Guardar</a>
                     </div>
                   </div>
                   <span class="phone-hours" data-translate="phoneHours" style="display: block; margin-top: 1rem;">Atención telefónica de 9:00h a 21:00h</span>
@@ -3376,7 +3514,7 @@
                 <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
                 <div class="info-details">
                   <h5 data-translate="emailLabel">Email:</h5>
-                  <p>info@cortijolagunachico.com</p>
+                  <p><a href="mailto:info@cortijolagunachico.com" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;" title="Enviar correo electrónico">info@cortijolagunachico.com</a></p>
                 </div>
               </li>
             </ul>
@@ -3535,6 +3673,7 @@
         heroSubtitle: "Alojamiento rural y eventos a pie de playa en Torre del Mar, Málaga",
         heroBtnBook: "Reservar Estancia",
         heroBtnEvents: "Celebrar Evento",
+        heroVideoRestart: "Ver desde el principio",
         heroBadge: "VTAR/MA/00367",
         aboutTitle: "Un Lugar Singular en la Costa del Sol",
         aboutText1: "Cortijo Laguna Chico es el fruto del esfuerzo y cariño de nuestra familia a lo largo de muchos años. Lo que comenzó como un hogar familiar frente al mar, ha sido transformado en una cuidada vivienda turística de alojamiento rural (VTAR/MA/00367), posibilitando compartir la magia y la tranquilidad de este rincón único con personas que buscan un ambiente acogedor, familiar y natural.",
@@ -3773,6 +3912,7 @@
         heroSubtitle: "Beachfront rural accommodation and events in Torre del Mar, Malaga",
         heroBtnBook: "Book Stay",
         heroBtnEvents: "Host Event",
+        heroVideoRestart: "Watch from start",
         heroBadge: "VTAR/MA/00367",
         aboutTitle: "A Unique Oasis on the Costa del Sol",
         aboutText1: "Cortijo Laguna Chico is the result of our family's hard work and affection over many years. What started as a family home facing the Mediterranean Sea has been transformed into a carefully renovated rural tourist accommodation (VTAR/MA/00367), allowing us to share the magic and tranquility of this unique spot with those seeking a cozy, family-friendly, and natural environment.",
@@ -4116,52 +4256,113 @@
             searchAvailResult.style.color = "#2e7d32";
             searchAvailResult.style.border = "1px solid #c8e6c9";
             searchAvailResult.innerHTML = currentLang === "es"
-              ? `✅ ¡Disponible!<br><a href='#contacto' id='bookSearchedDates' style='display:inline-block;margin-top:0.5rem;padding:0.5rem 1rem;background-color:#2e7d32;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;'>Solicitar Reserva</a>`
-              : `✅ Available!<br><a href='#contacto' id='bookSearchedDates' style='display:inline-block;margin-top:0.5rem;padding:0.5rem 1rem;background-color:#2e7d32;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;'>Request Booking</a>`;
+              ? `✅ <strong>¡Fechas Disponibles!</strong><br>
+                 <span style="font-size:0.86rem; color:#2e7d32; display:block; margin:0.25rem 0;">Del ${inVal} al ${outVal} (${diffDays} noches)</span>
+                 <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap; margin-top:0.65rem;">
+                   <a href='#contacto' id='bookSearchedDates' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#2e7d32; color:#fff; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700;'>
+                     <i class="fa-solid fa-calendar-check"></i> Rellenar Formulario
+                   </a>
+                   <a href='https://wa.me/34685319023?text=${encodeURIComponent("Hola, he comprobado en la web que del " + inVal + " al " + outVal + " (" + diffDays + " noches) está disponible en Cortijo Laguna Chico y me gustaría solicitar una reserva.")}' target='_blank' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#25d366; color:#fff; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700;'>
+                     <i class="fa-brands fa-whatsapp"></i> Reservar por WhatsApp
+                   </a>
+                 </div>`
+              : `✅ <strong>Dates Available!</strong><br>
+                 <span style="font-size:0.86rem; color:#2e7d32; display:block; margin:0.25rem 0;">From ${inVal} to ${outVal} (${diffDays} nights)</span>
+                 <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap; margin-top:0.65rem;">
+                   <a href='#contacto' id='bookSearchedDates' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#2e7d32; color:#fff; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700;'>
+                     <i class="fa-solid fa-calendar-check"></i> Fill Booking Form
+                   </a>
+                   <a href='https://wa.me/34685319023?text=${encodeURIComponent("Hello, I checked on the website that dates from " + inVal + " to " + outVal + " (" + diffDays + " nights) are available at Cortijo Laguna Chico and I would like to request a booking.")}' target='_blank' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#25d366; color:#fff; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700;'>
+                     <i class="fa-brands fa-whatsapp"></i> Book via WhatsApp
+                   </a>
+                 </div>`;
             
-            setTimeout(() => {
-              const bookBtn = document.getElementById("bookSearchedDates");
-              if (bookBtn) {
-                bookBtn.addEventListener("click", () => {
-                  const formMessage = document.getElementById("formMessage");
-                  if (formMessage) {
-                    formMessage.value = currentLang === "es"
-                      ? `Hola, he comprobado disponibilidad para las fechas:\nEntrada: ${inVal}\nSalida: ${outVal}\ny están libres. Quisiera solicitar una reserva.`
-                      : `Hello, I checked availability for dates:\nArrival: ${inVal}\nDeparture: ${outVal}\nand they are free. I would like to request a booking.`;
-                  }
-                });
-              }
-            }, 50);
+            // Autocompletar automáticamente el formulario de reserva
+            const formArrival = document.getElementById("formArrival");
+            const formNights = document.getElementById("formNights");
+            const formMessage = document.getElementById("formMessage");
+            if (formArrival) formArrival.value = inVal;
+            if (formNights) formNights.value = diffDays;
+            if (formMessage) {
+              formMessage.value = currentLang === "es"
+                ? `Hola, he comprobado disponibilidad para las fechas:
+Entrada: ${inVal}
+Salida: ${outVal} (${diffDays} noches)
+y están libres. Quisiera solicitar una reserva.`
+                : `Hello, I checked availability for dates:
+Arrival: ${inVal}
+Departure: ${outVal} (${diffDays} nights)
+and they are free. I would like to request a booking.`;
+            }
           } else if (occupiedCount === totalCount) {
-            // State 2: Fully Occupied
+            // State 2: Fully Occupied (con botón de WhatsApp de rescate)
             searchAvailResult.style.backgroundColor = "#ffebee";
             searchAvailResult.style.color = "#c62828";
             searchAvailResult.style.border = "1px solid #ffcdd2";
-            searchAvailResult.innerHTML = currentLang === "es" 
-              ? "❌ Ocupado para esas fechas.<br><a href='#disponibilidad' style='color:#c62828;text-decoration:underline;font-weight:700;'>Ver calendario completo</a>" 
-              : "❌ Occupied for those dates.<br><a href='#disponibilidad' style='color:#c62828;text-decoration:underline;font-weight:700;'>View full calendar</a>";
+            searchAvailResult.innerHTML = currentLang === "es"
+              ? `❌ <strong>Ocupado para esas fechas.</strong><br>
+                 <span style="font-size:0.86rem; color:#555; display:block; margin:0.3rem 0;">Consulta el calendario completo o consúltanos directamente por fechas alternativas:</span>
+                 <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap; margin-top:0.65rem;">
+                   <a href='#disponibilidad' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#ffffff; color:#c62828; border:1px solid #c62828; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700;'>
+                     <i class="fa-regular fa-calendar"></i> Ver calendario
+                   </a>
+                   <a href='https://wa.me/34685319023?text=${encodeURIComponent("Hola, he visto en la web que del " + inVal + " al " + outVal + " está ocupado en Cortijo Laguna Chico. ¿Tenéis fechas alternativas libres o lista de espera?")}' target='_blank' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#25d366; color:#fff; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700; box-shadow:0 3px 10px rgba(37,211,102,0.25);'>
+                     <i class="fa-brands fa-whatsapp"></i> Fechas alternativas por WhatsApp
+                   </a>
+                 </div>`
+              : `❌ <strong>Occupied for those dates.</strong><br>
+                 <span style="font-size:0.86rem; color:#555; display:block; margin:0.3rem 0;">Check full calendar or ask us directly for alternative available dates:</span>
+                 <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap; margin-top:0.65rem;">
+                   <a href='#disponibilidad' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#ffffff; color:#c62828; border:1px solid #c62828; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700;'>
+                     <i class="fa-regular fa-calendar"></i> View calendar
+                   </a>
+                   <a href='https://wa.me/34685319023?text=${encodeURIComponent("Hello, I saw on the web that dates from " + inVal + " to " + outVal + " are occupied at Cortijo Laguna Chico. Do you have alternative available dates or waitlist?")}' target='_blank' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#25d366; color:#fff; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700; box-shadow:0 3px 10px rgba(37,211,102,0.25);'>
+                     <i class="fa-brands fa-whatsapp"></i> Ask alternatives via WhatsApp
+                   </a>
+                 </div>`;
           } else {
             // State 3: Partially Available
             searchAvailResult.style.backgroundColor = "#fff3e0";
             searchAvailResult.style.color = "#e65100";
             searchAvailResult.style.border = "1px solid #ffe0b2";
             searchAvailResult.innerHTML = currentLang === "es"
-              ? `⚠️ Disponibilidad parcial.<br>Algunos de los días seleccionados están libres y otros ocupados.<br><a href='#contacto' id='bookPartialDates' style='display:inline-block;margin-top:0.5rem;padding:0.5rem 1rem;background-color:#e65100;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;'>Contactar para más info</a>`
-              : `⚠️ Partial availability.<br>Some of the selected days are free and others are occupied.<br><a href='#contacto' id='bookPartialDates' style='display:inline-block;margin-top:0.5rem;padding:0.5rem 1rem;background-color:#e65100;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;'>Contact for info</a>`;
+              ? `⚠️ <strong>Disponibilidad parcial.</strong><br>
+                 <span style="font-size:0.86rem; color:#555; display:block; margin:0.3rem 0;">Algunos días están libres y otros ocupados. Consúltanos para ajustar tu estancia:</span>
+                 <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap; margin-top:0.65rem;">
+                   <a href='#contacto' id='bookPartialDates' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#e65100; color:#fff; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700;'>
+                     <i class="fa-solid fa-envelope"></i> Contactar por Formulario
+                   </a>
+                   <a href='https://wa.me/34685319023?text=${encodeURIComponent("Hola, he consultado del " + inVal + " al " + outVal + " en Cortijo Laguna Chico y sale disponibilidad parcial. ¿Qué días exactos tenéis disponibles?")}' target='_blank' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#25d366; color:#fff; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700;'>
+                     <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+                   </a>
+                 </div>`
+              : `⚠️ <strong>Partial availability.</strong><br>
+                 <span style="font-size:0.86rem; color:#555; display:block; margin:0.3rem 0;">Some days are free and others are occupied. Contact us to adjust your stay:</span>
+                 <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap; margin-top:0.65rem;">
+                   <a href='#contacto' id='bookPartialDates' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#e65100; color:#fff; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700;'>
+                     <i class="fa-solid fa-envelope"></i> Contact via Form
+                   </a>
+                   <a href='https://wa.me/34685319023?text=${encodeURIComponent("Hello, I checked from " + inVal + " to " + outVal + " at Cortijo Laguna Chico and it shows partial availability. Which exact days are available?")}' target='_blank' style='display:inline-flex; align-items:center; gap:6px; padding:0.55rem 1rem; background-color:#25d366; color:#fff; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:700;'>
+                     <i class="fa-brands fa-whatsapp"></i> Ask via WhatsApp
+                   </a>
+                 </div>`;
             
-            setTimeout(() => {
-              const bookBtn = document.getElementById("bookPartialDates");
-              if (bookBtn) {
-                bookBtn.addEventListener("click", () => {
-                  const formMessage = document.getElementById("formMessage");
-                  if (formMessage) {
-                    formMessage.value = currentLang === "es"
-                      ? `Hola, he consultado las fechas:\nEntrada: ${inVal}\nSalida: ${outVal}\ny me indica que hay disponibilidad parcial. Quisiera consultar qué días están libres y solicitar más información.`
-                      : `Hello, I checked dates:\nArrival: ${inVal}\nDeparture: ${outVal}\nand it shows partial availability. I would like to consult which days are free and request more info.`;
-                  }
-                });
-              }
-            }, 50);
+            const formArrival = document.getElementById("formArrival");
+            const formNights = document.getElementById("formNights");
+            const formMessage = document.getElementById("formMessage");
+            if (formArrival) formArrival.value = inVal;
+            if (formNights) formNights.value = diffDays;
+            if (formMessage) {
+              formMessage.value = currentLang === "es"
+                ? `Hola, he consultado disponibilidad para las fechas:
+Entrada: ${inVal}
+Salida: ${outVal} (${diffDays} noches)
+y hay disponibilidad parcial. Me gustaría consultar opciones.`
+                : `Hello, I checked availability for dates:
+Arrival: ${inVal}
+Departure: ${outVal} (${diffDays} nights)
+and there is partial availability. I would like to inquire options.`;
+            }
           }
         });
       }
@@ -5101,6 +5302,26 @@
         });
 
         // Setup sound toggle & high quality for rooms video via safe postMessage
+        var heroRestartBtn = document.getElementById('heroVideoRestartBtn');
+        if (heroRestartBtn) {
+          heroRestartBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (player && typeof player.seekTo === 'function') {
+              player.seekTo(0, true);
+              player.playVideo();
+              var icon = heroRestartBtn.querySelector('i');
+              if (icon) {
+                icon.style.transform = 'rotate(-360deg)';
+                icon.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                setTimeout(function() {
+                  icon.style.transform = '';
+                  icon.style.transition = '';
+                }, 550);
+              }
+            }
+          });
+        }
+
         var soundToggle = document.getElementById('roomsSoundToggle');
         var roomsIframe = document.getElementById('rooms-youtube-player');
         if (roomsIframe) {
@@ -5196,5 +5417,16 @@
       });
     })();
   </script>
+    <!-- Widget Flotante de Contacto Rápido (Móvil y Escritorio) -->
+    <div class="floating-contact-widget" id="floatingContactWidget" aria-label="Contacto Rápido">
+      <a href="tel:+34685319023" class="floating-btn floating-call-btn" title="Llamar a Santiago" aria-label="Llamar por teléfono">
+        <i class="fa-solid fa-phone"></i>
+        <span class="floating-btn-text">Llamar</span>
+      </a>
+      <a href="https://wa.me/34685319023?text=Hola,%20quisiera%20consultar%20disponibilidad%20para%20Cortijo%20Laguna%20Chico" target="_blank" rel="noopener" class="floating-btn floating-wa-btn" title="Contactar por WhatsApp" aria-label="Escribir por WhatsApp">
+        <i class="fa-brands fa-whatsapp" style="font-size: 1.1rem;"></i>
+        <span class="floating-btn-text">WhatsApp</span>
+      </a>
+    </div>
 </body>
 </html>
